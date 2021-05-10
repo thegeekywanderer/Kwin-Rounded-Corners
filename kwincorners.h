@@ -28,7 +28,7 @@ class Q_DECL_EXPORT KwinCornersEffect : public KWin::Effect {
         KWin::GLTexture *m_tex[NTex];
         KWin::GLTexture *m_rect[NTex];
 
-        QList<int> m_size, m_rSize;
+        QList<int> m_size;
         QList<QSize> m_corner;
         QRegion m_updateRegion;
 
@@ -39,7 +39,9 @@ class Q_DECL_EXPORT KwinCornersEffect : public KWin::Effect {
             Chiseled,
         };
         CornerType m_type = CornerType::Normal;
-        bool m_outline; 
+
+        int m_alpha, m_rSize;
+        bool m_outline = true; 
         bool squareAtEdge = false;
         bool filterShadow = false;
 
