@@ -1,0 +1,35 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "therealestrob@gmail.com",
+                "Name": "Rob"
+            },
+            {
+                "Github": "https://github.com/khanhas",
+                "Name": "khanhas"
+            }
+        ],
+        "Category": "Appearance",
+        "Dependencies": [
+        ],
+        "Description": "Rounded corners with outlines for your windows.",
+        "EnabledByDefault": true,
+        "Icon": "",
+        "Id": "kwin4_effect_kwincorners",
+        "License": "GPL",
+        "Name": "KwinRoundedCorners",
+        "ServiceTypes": [
+            "KWin/Effect"
+        ],
+        "Version": "git"
+    },
+    "org.kde.kwin.effect": {
+        "video": "",
+        "exclusiveGroup": "",
+        "enabledByDefaultMethod": true
+    },
+    "X-KDE-Ordering": "5",
+    "X-Plasma-API": "",
+    "X-Plasma-MainScript": ""
+}
