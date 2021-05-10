@@ -1,5 +1,5 @@
 #pragma once    
-#include<kwineffects.h>
+#include <kwineffects.h>
 
 namespace KWin { class GLTexture; }
 
@@ -11,15 +11,17 @@ class Q_DECL_EXPORT KwinCornersEffect : public KWin::Effect {
         ~KwinCornersEffect();
 
         static bool supported();
-        static bool enabledbydefault();
+        static bool enabledByDefault();
 
         void genMasks();
         void genRect();
 
+        void fillRegion(const QRegion &reg, const QColor &c);
+
         void readConfig();
         void reconfigure(ReconfigureFlags flags);
 
-        bool isvalid(KWin::EffectWindow *window);
+        bool isValid(KWin::EffectWindow *window);
         void paintWindow(KWin::EffectWindow *window, int mask, QRegion region, KWin::WindowPaintData& data);
         int requestedEffectChainPosition() const { return 100; }
 
@@ -47,4 +49,4 @@ class Q_DECL_EXPORT KwinCornersEffect : public KWin::Effect {
 
         QStringList whitelist;
         QStringList blacklist;
-}       
+};

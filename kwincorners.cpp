@@ -4,7 +4,7 @@
 #include <QTextStream>
 #include <QStandardPaths>
 #include <kwinglplatform.h>
-#include <kwingutils.h>
+#include <kwinglutils.h>
 #include <QMatrix4x4>
 #include <KConfig>
 #include <KConfigGroup>
@@ -15,11 +15,12 @@ KWIN_EFFECT_FACTORY_SUPPORTED_ENABLED(
                                     KwinCornersEffect, 
                                     "kwincorners.json", 
                                     return KwinCornersEffect::supported();,
-                                    return KwinCornersEffect::enabledbydefault();)
+                                    return KwinCornersEffect::enabledByDefault();)
 
-KwinCornersEffect::KwinCornersEffect() : Kwin::Effect(), m_shader(0)
+KwinCornersEffect::KwinCornersEffect() : KWin::Effect(), m_shader(0)
 {
-    for (int i = 0; i < NTex; ++i){
+    for (int i = 0; i < NTex; ++i)
+    {
     	m_tex[i] = 0;
         m_rect[i] = 0;
 
@@ -31,7 +32,9 @@ KwinCornersEffect::KwinCornersEffect() : Kwin::Effect(), m_shader(0)
     const qint64 version = KWin::kVersionNumber(1, 40);
 
     if (KWin::GLPlatform::instance()->glslVersion() >= version)
-	    shadersDir = QStringLiteral("kwin/shaders/1.40/");
+    {
+        shadersDir = QStringLiteral("kwin/shaders/1.40/");
+    }
     
     const QString fragmentshader = QStandardPaths::locate(QStandardPaths::GenericDataLocation, shadersDir + QStringLiteral("kwincorners.frag"));
 
@@ -82,7 +85,7 @@ void KwinCornersEffect::readConfig() {
     squareAtEdge = generalGroup.readEntry("SquareAtScreenEdge", false);
 	filterShadow = generalGroup.readEntry("FilterShadow", false);
 
-    m_alpha = int(generalGroup.readEntry("OutlineStrength", 15) * 2.55)
+    m_alpha = int(generalGroup.readEntry("OutlineStrength", 15) * 2.55);
 
     whitelist = generalGroup.readEntry("Whitelist", QStringList());
 	blacklist = generalGroup.readEntry("Blacklist", QStringList());
@@ -130,7 +133,7 @@ void KwinCornersEffect::readConfig() {
 	}
 }
 
-KwinCornersEffect::genMasks() {
+void KwinCornersEffect::genMasks() {
     for (int i = 0; i < NTex; ++i)
         if (m_tex[i])
             delete m_tex[i];
@@ -174,7 +177,7 @@ KwinCornersEffect::genMasks() {
 	}
 }
 
-KwinCornersEffect::genRect()
+void KwinCornersEffect::genRect()
 {
     for (int i = 0; i < NTex; ++i)
         if (m_rect[i])
@@ -331,6 +334,8 @@ void KwinCornersEffect::paintWindow(KWin::EffectWindow *w, int mask, QRegion reg
 
     sm->popShader();
 	data.quads = qds;
+
+    //outline
     if (m_outline && data.brightness() == 1.0 && data.crossFadeProgress() == 1.0)
     {
         const QRect rrect[NTex] =
