@@ -1,5 +1,0 @@
-/usr/lib/qt/plugins/kwin/effects/plugins/kwin4_effect_kwincorners.so
-/usr/share/kwin/shaders/1.40/kwincorners.frag
-/usr/share/kwin/shaders/1.10/kwincorners.frag
-/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so
-/usr/share/kservices5/kwin/kwincorners_config.desktop
