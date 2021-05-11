@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+88859db031093688b80f01076d5c1b54 CMakeFiles/fetch-translations
+fe0779234c5ad283215ae8c8b31ead81 CMakeFiles/kwin4_effect_kwincorners_autogen
+39b9f7e1e68e73b9230b4870f4035781 CMakeFiles/uninstall
+8e15e254daf69e0a776acf6b01a451d4 releaseme

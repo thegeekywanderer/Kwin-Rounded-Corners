@@ -10,36 +10,32 @@
 #include <KConfigGroup>
 #include "kwincorners.h"
 
-KWIN_EFFECT_FACTORY_SUPPORTED_ENABLED(
-                                    KwinCornersFactory,
-                                    KwinCornersEffect, 
-                                    "kwincorners.json", 
-                                    return KwinCornersEffect::supported();,
-                                    return KwinCornersEffect::enabledByDefault();)
+KWIN_EFFECT_FACTORY_SUPPORTED_ENABLED(  KwinCornersFactory,
+                                        KwinCornersEffect,
+                                        "kwincorners.json",
+                                        return KwinCornersEffect::supported();,
+                                        return KwinCornersEffect::enabledByDefault();)
 
 KwinCornersEffect::KwinCornersEffect() : KWin::Effect(), m_shader(0)
 {
     for (int i = 0; i < NTex; ++i)
     {
-    	m_tex[i] = 0;
+        m_tex[i] = 0;
         m_rect[i] = 0;
-
     }
-	
     reconfigure(ReconfigureAll);
 
     QString shadersDir(QStringLiteral("kwin/shaders/1.10/"));
-    const qint64 version = KWin::kVersionNumber(1, 40);
 
+    const qint64 version = KWin::kVersionNumber(1, 40);
     if (KWin::GLPlatform::instance()->glslVersion() >= version)
-    {
-        shadersDir = QStringLiteral("kwin/shaders/1.40/");
-    }
-    
+		shadersDir = QStringLiteral("kwin/shaders/1.40/");
+
     const QString fragmentshader = QStandardPaths::locate(QStandardPaths::GenericDataLocation, shadersDir + QStringLiteral("kwincorners.frag"));
 
     QFile file(fragmentshader);
-	if (file.open(QFile::ReadOnly))
+
+    if (file.open(QFile::ReadOnly))
 	{
 		QByteArray frag = file.readAll();
 		m_shader = KWin::ShaderManager::instance()->generateCustomShader(KWin::ShaderTrait::MapTexture, QByteArray(), frag);
@@ -63,7 +59,6 @@ KwinCornersEffect::~KwinCornersEffect()
 {
     if (m_shader)
         delete m_shader;
-
     for (int i = 0; i < NTex; ++i)
     {
         if (m_tex[i])
@@ -78,8 +73,7 @@ void KwinCornersEffect::readConfig() {
     KConfig config("kwincornersrc", KConfig::SimpleConfig);
 
     KConfigGroup generalGroup(&config, "General");
-    QList<int> cornerSizes = generalGroup.readEntry("Radius", QList<int>{10, 10, 10, 10});
-    QString type = generalGroup.readEntry("Type", QString("rounded"));
+    m_size = int(generalGroup.readEntry("Radius", 10));
 
     m_outline = generalGroup.readEntry("Outline", false);
     squareAtEdge = generalGroup.readEntry("SquareAtScreenEdge", false);
@@ -90,91 +84,33 @@ void KwinCornersEffect::readConfig() {
     whitelist = generalGroup.readEntry("Whitelist", QStringList());
 	blacklist = generalGroup.readEntry("Blacklist", QStringList());
 
-    if (type.contains(QString("rounded"), Qt::CaseInsensitive))
-	{
-		m_type = CornerType::Rounded;
-	}
-	else if (type.contains(QString("chiseled"), Qt::CaseInsensitive))
-	{
-		m_type = CornerType::Chiseled;
-	}
 
-    bool isAllZero = true;
-    for (auto &size : cornerSizes)
-	{
-		if (size < 0)
-			size = 0;
-		isAllZero = isAllZero && (size == 0);
-	}
-
-	if (isAllZero)
-	{
-		m_type = CornerType::Normal;
-	}
-	else
-	{
-		switch (cornerSizes.size())
-		{
-		case 1: // All four corners have same radius
-			cornerSizes.push_back(cornerSizes.at(0));
-			cornerSizes.push_back(cornerSizes.at(0));
-			cornerSizes.push_back(cornerSizes.at(0));
-			break;
-		case 2: // Top Left = Bottom Right and Top Right = Bottom Left
-			cornerSizes.push_back(cornerSizes.at(0));
-			cornerSizes.push_back(cornerSizes.at(1));
-			break;
-		case 3: // Top Left = Bottom Right
-			cornerSizes.push_back(cornerSizes.at(1));
-			break;
-		}
-
-		m_size = cornerSizes;
-	}
 }
 
-void KwinCornersEffect::genMasks() {
+void KwinCornersEffect::genMasks()
+{
     for (int i = 0; i < NTex; ++i)
         if (m_tex[i])
             delete m_tex[i];
+
+
+    QImage img(m_size*2, m_size*2, QImage::Format_ARGB32_Premultiplied);
+    img.fill(Qt::transparent);
+
+    QPainter p(&img);
+    p.fillRect(img.rect(), Qt::black);
+    p.setCompositionMode(QPainter::CompositionMode_DestinationOut);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.setRenderHint(QPainter::Antialiasing);
+    p.drawEllipse(img.rect());
+    p.end();
+
+    m_tex[TopLeft] = new KWin::GLTexture(img.copy(0, 0, m_size, m_size));
+    m_tex[TopRight] = new KWin::GLTexture(img.copy(m_size, 0, m_size, m_size));
+    m_tex[BottomRight] = new KWin::GLTexture(img.copy(m_size, m_size, m_size, m_size));
+    m_tex[BottomLeft] = new KWin::GLTexture(img.copy(0, m_size, m_size, m_size));
     
-    if (m_type == CornerType::Normal)
-		return;
-
-    for (int i = 0; i < NTex; i++)
-	{
-		auto size = m_size.at(i);
-		QImage img(size * 2, size * 2, QImage::Format_ARGB32_Premultiplied);
-		img.fill(Qt::transparent);
-
-		QPainter p(&img);
-		p.fillRect(img.rect(), Qt::black);
-		p.setCompositionMode(QPainter::CompositionMode_DestinationOut);
-		p.setPen(Qt::NoPen);
-		p.setBrush(Qt::black);
-		p.setRenderHint(QPainter::HighQualityAntialiasing);
-
-		if (m_type == CornerType::Rounded)
-		{
-			p.drawEllipse(img.rect());
-		}
-		else if (m_type == CornerType::Chiseled)
-		{
-			const QPoint points[] = {
-				QPoint(size, 0),
-				QPoint(size * 2, size),
-				QPoint(size, size * 2),
-				QPoint(0, size)};
-
-			p.drawPolygon(points, 4);
-		}
-		p.end();
-
-		m_tex[i] = new KWin::GLTexture(img.copy(
-			i == 1 || i == 2 ? size : 0,
-			i == 0 || i == 1 ? size : 0,
-			size, size));
-	}
 }
 
 void KwinCornersEffect::genRect()
@@ -183,38 +119,32 @@ void KwinCornersEffect::genRect()
         if (m_rect[i])
             delete m_rect[i];
 
-    for (int i = 0; i < NTex; i++)
-	{
-		auto size = m_size.at(i);
-        m_rSize = size + 1;
-		QImage img(m_rSize * 2, m_rSize * 2, QImage::Format_ARGB32_Premultiplied);
-		img.fill(Qt::transparent);
+    m_rSize = m_size+1;
+    QImage img(m_rSize*2, m_rSize*2, QImage::Format_ARGB32_Premultiplied);
+    img.fill(Qt::transparent);
+    QPainter p(&img);
+    QRect r(img.rect());
+    p.setPen(Qt::NoPen);
+    //p.setBrush(QColor(0, 0, 0, m_alpha));
+    p.setRenderHint(QPainter::Antialiasing);
+    //p.drawEllipse(r);
+    //p.setCompositionMode(QPainter::CompositionMode_DestinationOut);
+    //p.setBrush(Qt::black);
+    r.adjust(1, 1, -1, -1);
+    //p.drawEllipse(r);
+    //p.setCompositionMode(QPainter::CompositionMode_SourceOver);
+    p.setBrush(QColor(255, 255, 255, m_alpha));
+    p.drawEllipse(r);
+    p.setCompositionMode(QPainter::CompositionMode_DestinationOut);
+    p.setBrush(Qt::black);
+    r.adjust(1, 1, -1, -1);
+    p.drawEllipse(r);
+    p.end();
 
-		QPainter p(&img);
-        QRect r(img.rect());
-
-        p.setPen(Qt::NoPen);
-        //p.setBrush(QColor(0, 0, 0, m_alpha));
-        p.setRenderHint(QPainter::Antialiasing);
-        //p.drawEllipse(r);
-        //p.setCompositionMode(QPainter::CompositionMode_DestinationOut);
-        //p.setBrush(Qt::black);
-        r.adjust(1, 1, -1, -1);
-         //p.drawEllipse(r);
-        //p.setCompositionMode(QPainter::CompositionMode_SourceOver);
-        p.setBrush(QColor(255, 255, 255, m_alpha));
-        p.drawEllipse(r);
-        p.setCompositionMode(QPainter::CompositionMode_DestinationOut);
-        p.setBrush(Qt::black);
-        r.adjust(1, 1, -1, -1);
-        p.drawEllipse(r);
-        p.end();
-
-		m_rect[i] = new KWin::GLTexture(img.copy(
-			i == 1 || i == 2 ? m_rSize : 0,
-			i == 0 || i == 1 ? m_rSize : 0,
-			m_rSize, m_rSize));
-	}
+    m_rect[TopLeft] = new KWin::GLTexture(img.copy(0, 0, m_rSize, m_rSize));
+    m_rect[TopRight] = new KWin::GLTexture(img.copy(m_rSize, 0, m_rSize, m_rSize));
+    m_rect[BottomRight] = new KWin::GLTexture(img.copy(m_rSize, m_rSize, m_rSize, m_rSize));
+    m_rect[BottomLeft] = new KWin::GLTexture(img.copy(0, m_rSize, m_rSize, m_rSize));
 }
 
 void KwinCornersEffect::reconfigure(ReconfigureFlags flags)
@@ -223,9 +153,7 @@ void KwinCornersEffect::reconfigure(ReconfigureFlags flags)
 
 	readConfig();
 
-	m_corner.clear();
-	for (const auto size : m_size)
-		m_corner.push_back(QSize(size, size));
+	m_corner = QSize(m_size, m_size);
 
 	genMasks();
     genRect();
@@ -259,26 +187,62 @@ bool KwinCornersEffect::isValid(KWin::EffectWindow *w)
 	return true;
 }
 
+void
+#if KWIN_EFFECT_API_VERSION >= 232
+KwinCornersEffect::prePaintWindow(KWin::EffectWindow* w, KWin::WindowPrePaintData &data, std::chrono::milliseconds time)
+#else
+KwinCornersEffect::prePaintWindow(KWin::EffectWindow* w, KWin::WindowPrePaintData &data, int time)
+#endif
+{
+    if(!isValid(w))
+	{
+		KWin::effects->prePaintWindow(w, data, time);
+        return;
+	}   
+
+    const QRect geo(w->geometry());
+    const QRect rect[NTex] =
+    {
+        QRect(geo.topLeft(), m_corner),
+        QRect(geo.topRight()-QPoint(m_size-1, 0), m_corner),
+        QRect(geo.bottomRight()-QPoint(m_size-1, m_size-1), m_corner),
+        QRect(geo.bottomLeft()-QPoint(0, m_size-1), m_corner)
+    };
+    for (int i = 0; i < NTex; ++i)
+    {
+        data.paint += rect[i];
+        data.clip -= rect[i];
+    }
+    QRegion outerRect(QRegion(geo.adjusted(-1, -1, 1, 1))-geo.adjusted(1, 1, -1, -1));
+    //outerRect += QRegion(geo.x()+m_size, geo.y(), geo.width()-m_size*2, 1);
+    data.paint += outerRect;
+    data.clip -=outerRect;
+    KWin::effects->prePaintWindow(w, data, time);
+}
+
 void KwinCornersEffect::paintWindow(KWin::EffectWindow *w, int mask, QRegion region, KWin::WindowPaintData &data)
 {
     KWin::WindowQuadList qds(data.quads);
 
-    if (filterShadow)
+	if (filterShadow)
 		data.quads = qds.filterOut(KWin::WindowQuadShadow);
-    
-    if (!isValid(w) || m_type == CornerType::Normal)
+
+
+	if(!isValid(w))
 	{
 		KWin::effects->paintWindow(w, mask, region, data);
 		return;
 	}
 
     // Map the corners
-	const QRect geo(w->geometry());
-	const QRect rect[NTex] = {
-		QRect(geo.topLeft(), m_corner.at(0)),
-		QRect(geo.topRight() - QPoint(m_size.at(1) - 1, 0), m_corner.at(1)),
-		QRect(geo.bottomRight() - QPoint(m_size.at(2) - 1, m_size.at(2) - 1), m_corner.at(2)),
-		QRect(geo.bottomLeft() - QPoint(0, m_size.at(3) - 1), m_corner.at(3))};
+    const QRect geo(w->geometry());
+    const QRect rect[NTex] =
+    {
+        QRect(geo.topLeft(), m_corner),
+        QRect(geo.topRight()-QPoint(m_size-1, 0), m_corner),
+        QRect(geo.bottomRight()-QPoint(m_size-1, m_size-1), m_corner),
+        QRect(geo.bottomLeft()-QPoint(0, m_size-1), m_corner)
+    };
 
     // Copy the corner regions
 	KWin::GLTexture tex[NTex];
@@ -296,46 +260,44 @@ void KwinCornersEffect::paintWindow(KWin::EffectWindow *w, int mask, QRegion reg
 		tex[i].unbind();
 	}
 
-  	KWin::effects->paintWindow(w, mask, region, data);
+    // Paint the window content
+    KWin::effects->paintWindow(w, mask, region, data);
 
-    // Shape the corners
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    //'shape' the corners
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	const int mvpMatrixLocation = m_shader->uniformLocation("modelViewProjectionMatrix");
-	KWin::ShaderManager *sm = KWin::ShaderManager::instance();
-	sm->pushShader(m_shader /*KWin::ShaderTrait::MapTexture*/);
+    
+    KWin::ShaderManager *sm = KWin::ShaderManager::instance();
+    sm->pushShader(m_shader);
 
-	bool cornerConditions[] = {
-		squareAtEdge && (geo.left() == 0 || geo.top() == 0),
-		squareAtEdge && ((geo.right() + 1) == s.width() || geo.top() == 0),
-		squareAtEdge && ((geo.right() + 1) == s.width() || (geo.bottom() + 1) == s.height()),
-		squareAtEdge && (geo.left() == 0 || (geo.bottom() + 1) == s.height())};
+    // bool cornerConditions[] = {
+	// 	squareAtEdge && (geo.left() == 0 || geo.top() == 0),
+	// 	squareAtEdge && ((geo.right() + 1) == s.width() || geo.top() == 0),
+	// 	squareAtEdge && ((geo.right() + 1) == s.width() || (geo.bottom() + 1) == s.height()),
+	// 	squareAtEdge && (geo.left() == 0 || (geo.bottom() + 1) == s.height())};
 
     for (int i = 0; i < NTex; ++i)
-	{
-		if (cornerConditions[i])
-			continue;
+    {
+        // if (cornerConditions[i])
+		// 	continue;
 
-		QMatrix4x4 modelViewProjection;
-		modelViewProjection.ortho(0, s.width(), s.height(), 0, 0, 65535);
-		modelViewProjection.translate(rect[i].x(), rect[i].y());
-		m_shader->setUniform(mvpMatrixLocation, modelViewProjection);
-
-		glActiveTexture(GL_TEXTURE1);
-		m_tex[i]->bind();
-		glActiveTexture(GL_TEXTURE0);
-		tex[i].bind();
-
-		tex[i].render(region, rect[i]);
-
-		tex[i].unbind();
-		m_tex[i]->unbind();
-	}
+        QMatrix4x4 mvp = data.screenProjectionMatrix();
+        mvp.translate(rect[i].x(), rect[i].y());
+        m_shader->setUniform(mvpMatrixLocation, mvp);
+        glActiveTexture(GL_TEXTURE1);
+        m_tex[3-i]->bind();
+        glActiveTexture(GL_TEXTURE0);
+        tex[i].bind();
+        tex[i].render(region, rect[i]);
+        tex[i].unbind();
+        m_tex[3-i]->unbind();
+    }
 
     sm->popShader();
-	data.quads = qds;
+    data.quads = qds;
 
-    //outline
+    // outline
     if (m_outline && data.brightness() == 1.0 && data.crossFadeProgress() == 1.0)
     {
         const QRect rrect[NTex] =
@@ -372,7 +334,7 @@ void KwinCornersEffect::paintWindow(KWin::EffectWindow *w, int mask, QRegion reg
         KWin::ShaderManager::instance()->popShader();
     }
 
-	glDisable(GL_BLEND);
+    glDisable(GL_BLEND);
 }
 
 void KwinCornersEffect::fillRegion(const QRegion &reg, const QColor &c)
@@ -397,7 +359,7 @@ void KwinCornersEffect::fillRegion(const QRegion &reg, const QColor &c)
 
 bool KwinCornersEffect::enabledByDefault()
 {
-	return supported();
+    return supported();
 }
 
 bool KwinCornersEffect::supported()

@@ -1,0 +1,174 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'kwincorners.cpp'
+**
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.15.2)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#include <memory>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qmetatype.h>
+#include <QtCore/qplugin.h>
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'kwincorners.cpp' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.15.2. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_DEPRECATED
+struct qt_meta_stringdata_KwinCornersFactory_t {
+    QByteArrayData data[1];
+    char stringdata0[19];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_KwinCornersFactory_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_KwinCornersFactory_t qt_meta_stringdata_KwinCornersFactory = {
+    {
+QT_MOC_LITERAL(0, 0, 18) // "KwinCornersFactory"
+
+    },
+    "KwinCornersFactory"
+};
+#undef QT_MOC_LITERAL
+
+static const uint qt_meta_data_KwinCornersFactory[] = {
+
+ // content:
+       8,       // revision
+       0,       // classname
+       0,    0, // classinfo
+       0,    0, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+       0        // eod
+};
+
+void KwinCornersFactory::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+{
+    (void)_o;
+    (void)_id;
+    (void)_c;
+    (void)_a;
+}
+
+QT_INIT_METAOBJECT const QMetaObject KwinCornersFactory::staticMetaObject = { {
+    QMetaObject::SuperData::link<KWin::EffectPluginFactory::staticMetaObject>(),
+    qt_meta_stringdata_KwinCornersFactory.data,
+    qt_meta_data_KwinCornersFactory,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
+
+const QMetaObject *KwinCornersFactory::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
+}
+
+void *KwinCornersFactory::qt_metacast(const char *_clname)
+{
+    if (!_clname) return nullptr;
+    if (!strcmp(_clname, qt_meta_stringdata_KwinCornersFactory.stringdata0))
+        return static_cast<void*>(this);
+    if (!strcmp(_clname, "org.kde.KPluginFactory"))
+        return static_cast< KPluginFactory*>(this);
+    return KWin::EffectPluginFactory::qt_metacast(_clname);
+}
+
+int KwinCornersFactory::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = KWin::EffectPluginFactory::qt_metacall(_c, _id, _a);
+    return _id;
+}
+
+QT_PLUGIN_METADATA_SECTION
+static constexpr unsigned char qt_pluginMetaData[] = {
+    'Q', 'T', 'M', 'E', 'T', 'A', 'D', 'A', 'T', 'A', ' ', '!',
+    // metadata version, Qt version, architectural requirements
+    0, QT_VERSION_MAJOR, QT_VERSION_MINOR, qPluginArchRequirements(),
+    0xbf, 
+    // "IID"
+    0x02,  0x76,  'o',  'r',  'g',  '.',  'k',  'd', 
+    'e',  '.',  'K',  'P',  'l',  'u',  'g',  'i', 
+    'n',  'F',  'a',  'c',  't',  'o',  'r',  'y', 
+    // "className"
+    0x03,  0x72,  'K',  'w',  'i',  'n',  'C',  'o', 
+    'r',  'n',  'e',  'r',  's',  'F',  'a',  'c', 
+    't',  'o',  'r',  'y', 
+    // "MetaData"
+    0x04,  0xa5,  0x67,  'K',  'P',  'l',  'u',  'g', 
+    'i',  'n',  0xab,  0x67,  'A',  'u',  't',  'h', 
+    'o',  'r',  's',  0x82,  0xa2,  0x65,  'E',  'm', 
+    'a',  'i',  'l',  0x77,  't',  'h',  'e',  'r', 
+    'e',  'a',  'l',  'e',  's',  't',  'r',  'o', 
+    'b',  '@',  'g',  'm',  'a',  'i',  'l',  '.', 
+    'c',  'o',  'm',  0x64,  'N',  'a',  'm',  'e', 
+    0x63,  'R',  'o',  'b',  0xa2,  0x66,  'G',  'i', 
+    't',  'h',  'u',  'b',  0x78,  0x1a,  'h',  't', 
+    't',  'p',  's',  ':',  '/',  '/',  'g',  'i', 
+    't',  'h',  'u',  'b',  '.',  'c',  'o',  'm', 
+    '/',  'k',  'h',  'a',  'n',  'h',  'a',  's', 
+    0x64,  'N',  'a',  'm',  'e',  0x67,  'k',  'h', 
+    'a',  'n',  'h',  'a',  's',  0x68,  'C',  'a', 
+    't',  'e',  'g',  'o',  'r',  'y',  0x6a,  'A', 
+    'p',  'p',  'e',  'a',  'r',  'a',  'n',  'c', 
+    'e',  0x6c,  'D',  'e',  'p',  'e',  'n',  'd', 
+    'e',  'n',  'c',  'i',  'e',  's',  0x80,  0x6b, 
+    'D',  'e',  's',  'c',  'r',  'i',  'p',  't', 
+    'i',  'o',  'n',  0x78,  0x2f,  'R',  'o',  'u', 
+    'n',  'd',  'e',  'd',  ' ',  'c',  'o',  'r', 
+    'n',  'e',  'r',  's',  ' ',  'w',  'i',  't', 
+    'h',  ' ',  'o',  'u',  't',  'l',  'i',  'n', 
+    'e',  's',  ' ',  'f',  'o',  'r',  ' ',  'y', 
+    'o',  'u',  'r',  ' ',  'w',  'i',  'n',  'd', 
+    'o',  'w',  's',  '.',  0x70,  'E',  'n',  'a', 
+    'b',  'l',  'e',  'd',  'B',  'y',  'D',  'e', 
+    'f',  'a',  'u',  'l',  't',  0xf5,  0x64,  'I', 
+    'c',  'o',  'n',  0x60,  0x62,  'I',  'd',  0x78, 
+    0x18,  'k',  'w',  'i',  'n',  '4',  '_',  'e', 
+    'f',  'f',  'e',  'c',  't',  '_',  'k',  'w', 
+    'i',  'n',  'c',  'o',  'r',  'n',  'e',  'r', 
+    's',  0x67,  'L',  'i',  'c',  'e',  'n',  's', 
+    'e',  0x63,  'G',  'P',  'L',  0x64,  'N',  'a', 
+    'm',  'e',  0x72,  'K',  'w',  'i',  'n',  'R', 
+    'o',  'u',  'n',  'd',  'e',  'd',  'C',  'o', 
+    'r',  'n',  'e',  'r',  's',  0x6c,  'S',  'e', 
+    'r',  'v',  'i',  'c',  'e',  'T',  'y',  'p', 
+    'e',  's',  0x81,  0x6b,  'K',  'W',  'i',  'n', 
+    '/',  'E',  'f',  'f',  'e',  'c',  't',  0x67, 
+    'V',  'e',  'r',  's',  'i',  'o',  'n',  0x63, 
+    'g',  'i',  't',  0x6e,  'X',  '-',  'K',  'D', 
+    'E',  '-',  'O',  'r',  'd',  'e',  'r',  'i', 
+    'n',  'g',  0x61,  '5',  0x6c,  'X',  '-',  'P', 
+    'l',  'a',  's',  'm',  'a',  '-',  'A',  'P', 
+    'I',  0x60,  0x73,  'X',  '-',  'P',  'l',  'a', 
+    's',  'm',  'a',  '-',  'M',  'a',  'i',  'n', 
+    'S',  'c',  'r',  'i',  'p',  't',  0x60,  0x73, 
+    'o',  'r',  'g',  '.',  'k',  'd',  'e',  '.', 
+    'k',  'w',  'i',  'n',  '.',  'e',  'f',  'f', 
+    'e',  'c',  't',  0xa3,  0x76,  'e',  'n',  'a', 
+    'b',  'l',  'e',  'd',  'B',  'y',  'D',  'e', 
+    'f',  'a',  'u',  'l',  't',  'M',  'e',  't', 
+    'h',  'o',  'd',  0xf5,  0x6e,  'e',  'x',  'c', 
+    'l',  'u',  's',  'i',  'v',  'e',  'G',  'r', 
+    'o',  'u',  'p',  0x60,  0x65,  'v',  'i',  'd', 
+    'e',  'o',  0x60, 
+    0xff, 
+};
+QT_MOC_EXPORT_PLUGIN(KwinCornersFactory, KwinCornersFactory)
+
+QT_WARNING_POP
+QT_END_MOC_NAMESPACE
