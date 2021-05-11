@@ -250,11 +250,19 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: \
  /usr/include/qt/QtGui/qgenericmatrix.h /usr/include/qt/QtCore/qdebug.h \
  /usr/include/qt/QtCore/qtextstream.h /usr/include/qt/QtCore/qset.h \
  /usr/include/qt/QtCore/qcontiguouscache.h /usr/include/qt/QtCore/QStack \
- /usr/include/qt/QtCore/qstack.h /usr/include/KF5/KConfigCore/KConfig \
+ /usr/include/qt/QtCore/qstack.h \
+ /usr/include/KF5/KWindowSystem/kwindowsystem.h \
+ /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
+ /usr/include/qt/QtCore/QObject /usr/include/qt/QtCore/qobject.h \
+ /usr/include/qt/QtGui/QWidgetList /usr/include/qt/QtGui/qwindowdefs.h \
+ /usr/include/KF5/KWindowSystem/netwm_def.h /usr/include/qt/QtCore/QFlags \
+ /usr/include/qt/QtCore/qflags.h \
+ /usr/include/KF5/KWindowSystem/kwindowinfo.h \
+ /usr/include/qt/QtCore/QStringList /usr/include/qt/QtCore/qstringlist.h \
+ /usr/include/KF5/KConfigCore/KConfig \
  /usr/include/KF5/KConfigCore/kconfig.h \
  /usr/include/KF5/KConfigCore/kconfigbase.h \
  /usr/include/KF5/KConfigCore/kconfigcore_export.h \
- /usr/include/qt/QtCore/QStringList /usr/include/qt/QtCore/qstringlist.h \
  /usr/include/qt/QtCore/QtGlobal /usr/include/qt/QtCore/qglobal.h \
  /usr/include/qt/QtCore/QList /usr/include/qt/QtCore/qlist.h \
  /usr/include/qt/QtCore/QString /usr/include/qt/QtCore/qstring.h \
@@ -278,7 +286,6 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: \
  /usr/include/KF5/KCoreAddons/KPluginFactory \
  /usr/include/KF5/KCoreAddons/kpluginfactory.h \
  /usr/include/KF5/KCoreAddons/kcoreaddons_export.h \
- /usr/include/qt/QtCore/QObject /usr/include/qt/QtCore/qobject.h \
  /usr/include/KF5/KCoreAddons/kexportplugin.h \
  /usr/include/qt/QtCore/QPluginLoader \
  /usr/include/qt/QtCore/qpluginloader.h /usr/include/qt/QtCore/qlibrary.h \
@@ -294,8 +301,7 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: \
  /usr/include/KF5/KConfigCore/ksharedconfig.h \
  /usr/include/KF5/KConfigCore/kconfig.h \
  /usr/include/KF5/KWindowSystem/netwm.h \
- /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
  /usr/include/KF5/KWindowSystem/config-kwindowsystem.h \
- /usr/include/KF5/KWindowSystem/netwm_def.h /usr/include/qt/QtCore/QFlags \
- /usr/include/qt/QtCore/qflags.h /usr/include/c++/10.2.0/climits \
+ /usr/include/KF5/KWindowSystem/netwm_def.h \
+ /usr/include/c++/10.2.0/climits \
  /home/wolf/Desktop/Time/KwinCorners/build/kwin4_effect_kwincorners_autogen/include/kwincorners.moc

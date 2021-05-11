@@ -26,7 +26,7 @@ public:
     void reconfigure(ReconfigureFlags flags);
 
     bool isValid(KWin::EffectWindow *window);
-    
+
 #if KWIN_EFFECT_API_VERSION >= 232
     void prePaintWindow(KWin::EffectWindow *w, KWin::WindowPrePaintData &data, std::chrono::milliseconds time);
 #else
@@ -34,6 +34,10 @@ public:
 #endif
     void paintWindow(KWin::EffectWindow *window, int mask, QRegion region, KWin::WindowPaintData &data);
     int requestedEffectChainPosition() const { return 100; }
+
+
+protected Q_SLOTS:
+    void windowAdded(KWin::EffectWindow *window);
 
 private:
     enum
@@ -65,4 +69,6 @@ private:
 
     QStringList whitelist;
     QStringList blacklist;
+
+    QList<KWin::EffectWindow *> m_managed;
 };

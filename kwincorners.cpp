@@ -5,6 +5,7 @@
 #include <QStandardPaths>
 #include <kwinglplatform.h>
 #include <kwinglutils.h>
+#include <kwindowsystem.h>
 #include <QMatrix4x4>
 #include <KConfig>
 #include <KConfigGroup>
@@ -49,6 +50,11 @@ KwinCornersEffect::KwinCornersEffect() : KWin::Effect(), m_shader(0)
 			m_shader->setUniform(corner, 1);
 			m_shader->setUniform(sampler, 0);
 			KWin::ShaderManager::instance()->popShader();
+            for (int i = 0; i < KWindowSystem::windows().count(); ++i)
+                if (KWin::EffectWindow *win = KWin::effects->findWindow(KWindowSystem::windows().at(i)))
+                    windowAdded(win);
+            connect(KWin::effects, &KWin::EffectsHandler::windowAdded, this, &KwinCornersEffect::windowAdded);
+            connect(KWin::effects, &KWin::EffectsHandler::windowClosed, this, [this](){m_managed.removeOne(static_cast<KWin::EffectWindow *>(sender()));});
 		}
 	}
 	else
@@ -66,6 +72,17 @@ KwinCornersEffect::~KwinCornersEffect()
         if (m_rect[i])
             delete m_rect[i];
     }
+}
+
+void KwinCornersEffect::windowAdded(KWin::EffectWindow *w)
+{
+    if (m_managed.contains(w))
+        return;
+    if (!w->hasDecoration() && (w->windowClass().contains("plasma", Qt::CaseInsensitive)
+            // || w->windowClass().contains("krunner", Qt::CaseInsensitive)
+            || w->windowClass().contains("latte-dock", Qt::CaseInsensitive)))
+        return;
+    m_managed << w;
 }
 
 void KwinCornersEffect::readConfig() {
@@ -194,7 +211,12 @@ KwinCornersEffect::prePaintWindow(KWin::EffectWindow* w, KWin::WindowPrePaintDat
 KwinCornersEffect::prePaintWindow(KWin::EffectWindow* w, KWin::WindowPrePaintData &data, int time)
 #endif
 {
-    if(!isValid(w))
+    if(!isValid(w) 
+            || !m_managed.contains(w)
+            || !w->isPaintingEnabled()
+//            || KWin::effects->hasActiveFullScreenEffect()
+            || w->isDesktop()
+            || data.quads.isTransformed())
 	{
 		KWin::effects->prePaintWindow(w, data, time);
         return;
@@ -228,7 +250,12 @@ void KwinCornersEffect::paintWindow(KWin::EffectWindow *w, int mask, QRegion reg
 		data.quads = qds.filterOut(KWin::WindowQuadShadow);
 
 
-	if(!isValid(w))
+	if(!isValid(w)
+            || !m_managed.contains(w)
+            || !w->isPaintingEnabled()
+//            || KWin::effects->hasActiveFullScreenEffect()
+            || w->isDesktop()
+            || data.quads.isTransformed())
 	{
 		KWin::effects->paintWindow(w, mask, region, data);
 		return;

@@ -16,6 +16,8 @@
   /usr/include/KF5/KCoreAddons/kexportplugin.h \
   /usr/include/KF5/KCoreAddons/kpluginfactory.h \
   /usr/include/KF5/KWindowSystem/config-kwindowsystem.h \
+  /usr/include/KF5/KWindowSystem/kwindowinfo.h \
+  /usr/include/KF5/KWindowSystem/kwindowsystem.h \
   /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
   /usr/include/KF5/KWindowSystem/netwm.h \
   /usr/include/KF5/KWindowSystem/netwm_def.h \
@@ -375,6 +377,7 @@
   /usr/include/qt/QtGui/QRegion \
   /usr/include/qt/QtGui/QVector2D \
   /usr/include/qt/QtGui/QVector3D \
+  /usr/include/qt/QtGui/QWidgetList \
   /usr/include/qt/QtGui/qbrush.h \
   /usr/include/qt/QtGui/qcolor.h \
   /usr/include/qt/QtGui/qfont.h \

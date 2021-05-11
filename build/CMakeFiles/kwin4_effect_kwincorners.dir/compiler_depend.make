@@ -773,12 +773,22 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/qt/QtCore/qcontiguouscache.h \
   /usr/include/qt/QtCore/QStack \
   /usr/include/qt/QtCore/qstack.h \
+  /usr/include/KF5/KWindowSystem/kwindowsystem.h \
+  /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
+  /usr/include/qt/QtCore/QObject \
+  /usr/include/qt/QtCore/qobject.h \
+  /usr/include/qt/QtGui/QWidgetList \
+  /usr/include/qt/QtGui/qwindowdefs.h \
+  /usr/include/KF5/KWindowSystem/netwm_def.h \
+  /usr/include/qt/QtCore/QFlags \
+  /usr/include/qt/QtCore/qflags.h \
+  /usr/include/KF5/KWindowSystem/kwindowinfo.h \
+  /usr/include/qt/QtCore/QStringList \
+  /usr/include/qt/QtCore/qstringlist.h \
   /usr/include/KF5/KConfigCore/KConfig \
   /usr/include/KF5/KConfigCore/kconfig.h \
   /usr/include/KF5/KConfigCore/kconfigbase.h \
   /usr/include/KF5/KConfigCore/kconfigcore_export.h \
-  /usr/include/qt/QtCore/QStringList \
-  /usr/include/qt/QtCore/qstringlist.h \
   /usr/include/qt/QtCore/QtGlobal \
   /usr/include/qt/QtCore/qglobal.h \
   /usr/include/qt/QtCore/QList \
@@ -816,8 +826,6 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/KF5/KCoreAddons/KPluginFactory \
   /usr/include/KF5/KCoreAddons/kpluginfactory.h \
   /usr/include/KF5/KCoreAddons/kcoreaddons_export.h \
-  /usr/include/qt/QtCore/QObject \
-  /usr/include/qt/QtCore/qobject.h \
   /usr/include/KF5/KCoreAddons/kexportplugin.h \
   /usr/include/qt/QtCore/QPluginLoader \
   /usr/include/qt/QtCore/qpluginloader.h \
@@ -839,11 +847,8 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/KF5/KConfigCore/ksharedconfig.h \
   /usr/include/KF5/KConfigCore/kconfig.h \
   /usr/include/KF5/KWindowSystem/netwm.h \
-  /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
   /usr/include/KF5/KWindowSystem/config-kwindowsystem.h \
   /usr/include/KF5/KWindowSystem/netwm_def.h \
-  /usr/include/qt/QtCore/QFlags \
-  /usr/include/qt/QtCore/qflags.h \
   /usr/include/c++/10.2.0/climits \
   kwin4_effect_kwincorners_autogen/include/kwincorners.moc
 
@@ -899,6 +904,8 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/KF5/KConfigCore/kconfigcore_export.h:
 
 /usr/include/KF5/KConfigCore/kconfigbase.h:
+
+/usr/include/KF5/KWindowSystem/kwindowinfo.h:
 
 /usr/include/qt/QtCore/QString:
 
@@ -1156,6 +1163,8 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/c++/10.2.0/bits/nested_exception.h:
 
+/usr/include/qt/QtGui/QWidgetList:
+
 /usr/include/c++/10.2.0/bits/refwrap.h:
 
 /usr/include/c++/10.2.0/ext/atomicity.h:
@@ -1385,6 +1394,8 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/bits/timex.h:
 
 /usr/include/c++/10.2.0/bits/stl_algo.h:
+
+/usr/include/KF5/KWindowSystem/kwindowsystem.h:
 
 /usr/include/qt/QtCore/QSize:
 
