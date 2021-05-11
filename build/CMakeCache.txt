@@ -158,7 +158,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=kwin4_effect_kwincorners
+CMAKE_PROJECT_NAME:STATIC=kwin4_kwincorners_config
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -983,10 +983,19 @@ _Qt5UiTools_RELEASE_GL_PATH:FILEPATH=/usr/lib/libGL.so
 kwin4_effect_kwincorners_BINARY_DIR:STATIC=/home/wolf/Desktop/Time/KwinCorners/build
 
 //Dependencies for the target
-kwin4_effect_kwincorners_LIB_DEPENDS:STATIC=general;Qt5::Core;general;Qt5::Gui;general;/usr/lib/libkwineffects.so;general;/usr/lib/libkwinglutils.so;general;epoxy;general;GL;general;KF5::ConfigCore;general;KF5::CoreAddons;general;KF5::ConfigWidgets;general;KF5::GuiAddons;general;KF5::WindowSystem;general;Qt5::X11Extras;general;XCB::XCB;
+kwin4_effect_kwincorners_LIB_DEPENDS:STATIC=general;Qt5::Core;general;Qt5::Gui;general;Qt5::DBus;general;/usr/lib/libkwineffects.so;general;/usr/lib/libkwinglutils.so;general;epoxy;general;GL;general;KF5::ConfigCore;general;KF5::CoreAddons;general;KF5::ConfigWidgets;general;KF5::GuiAddons;general;KF5::WindowSystem;general;Qt5::X11Extras;general;XCB::XCB;
 
 //Value Computed by CMake
 kwin4_effect_kwincorners_SOURCE_DIR:STATIC=/home/wolf/Desktop/Time/KwinCorners
+
+//Value Computed by CMake
+kwin4_kwincorners_config_BINARY_DIR:STATIC=/home/wolf/Desktop/Time/KwinCorners/build
+
+//Dependencies for the target
+kwin4_kwincorners_config_LIB_DEPENDS:STATIC=general;kwineffects;general;Qt5::Widgets;general;KF5::ConfigWidgets;general;KF5::WindowSystem;general;KF5::I18n;general;KF5::GlobalAccel;
+
+//Value Computed by CMake
+kwin4_kwincorners_config_SOURCE_DIR:STATIC=/home/wolf/Desktop/Time/KwinCorners
 
 //Path to a library.
 pkgcfg_lib_PKG_FONTCONFIG_fontconfig:FILEPATH=/usr/lib/libfontconfig.so

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(KWINROUNDEDCORNERS kwin4_effect_kwincorners)
+set(KWINCORNERS kwin4_effect_kwincorners)
 
-project(${KWINROUNDEDCORNERS})
+project(${KWINCORNERS})
 
 set(QT_MIN_VERSION "5.4.0")
 set(KF5_MIN_VERSION "5.9.0")
@@ -11,7 +11,7 @@ find_package(ECM REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 
 find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-Gui
+    Gui
     Core
     DBus
     UiTools
@@ -80,12 +80,13 @@ if (NOT EFFECTS_H OR NOT KWIN_GLUTILS OR NOT KWIN_EFFECTS OR NOT OPENGL)
     message(FATAL_ERROR "cant continue")
 endif (NOT EFFECTS_H OR NOT KWIN_GLUTILS OR NOT KWIN_EFFECTS OR NOT OPENGL)
 
-add_library(${KWINROUNDEDCORNERS} MODULE kwincorners.cpp)
+add_library(${KWINCORNERS} MODULE kwincorners.cpp dbus.h)
 
-target_link_libraries(${KWINROUNDEDCORNERS}
+target_link_libraries(${KWINCORNERS}
     PUBLIC
         Qt5::Core
         Qt5::Gui
+        Qt5::DBus
         ${KWIN_EFFECTS}
         ${KWIN_GLUTILS}
         epoxy
@@ -99,17 +100,36 @@ target_link_libraries(${KWINROUNDEDCORNERS}
         )
 
 if (XCB_FOUND)
-    target_link_libraries(${KWINROUNDEDCORNERS} PUBLIC Qt5::X11Extras XCB::XCB)
+    target_link_libraries(${KWINCORNERS} PUBLIC Qt5::X11Extras XCB::XCB)
 else (XCB_FOUND)
     if (X11_FOUND)
-        target_link_libraries(${KWINROUNDEDCORNERS} PUBLIC ${X11_X11_LIB} ${X11_LIBRARIES})
+        target_link_libraries(${KWINCORNERS} PUBLIC ${X11_X11_LIB} ${X11_LIBRARIES})
     endif (X11_FOUND)
 endif (XCB_FOUND)
 
-
-install(TARGETS ${KWINROUNDEDCORNERS} DESTINATION ${MODULEPATH}/kwin/effects/plugins)
+install(TARGETS ${KWINCORNERS} DESTINATION ${MODULEPATH}/kwin/effects/plugins)
 
 execute_process(COMMAND kf5-config --install data OUTPUT_VARIABLE DATAPATH OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 install(FILES shaders_140/kwincorners.frag DESTINATION ${DATAPATH}/kwin/shaders/1.40)
 install(FILES shaders_110/kwincorners.frag DESTINATION ${DATAPATH}/kwin/shaders/1.10)
+
+#config
+project(kwin4_kwincorners_config)
+set(kwin4_kwincorners_config_SOURCES kwincorners_config.cpp)
+ki18n_wrap_ui(kwin4_kwincorners_config_SOURCES kwincorners_config.ui)
+qt5_add_dbus_interface(kwin4_kwincorners_config_SOURCES org.kde.kwin.Effects.xml kwineffects_interface)
+add_library(kwin4_kwincorners_config MODULE ${kwin4_kwincorners_config_SOURCES})
+target_link_libraries(kwin4_kwincorners_config
+        PUBLIC
+            kwineffects
+            Qt5::Widgets
+        PRIVATE
+            KF5::ConfigWidgets
+            KF5::WindowSystem
+            KF5::I18n
+            KF5::GlobalAccel
+        )
+kcoreaddons_desktop_to_json(kwin4_kwincorners_config kwincorners_config.desktop)
+install(TARGETS kwin4_kwincorners_config DESTINATION ${MODULEPATH}/kwin/effects/configs)
+install(FILES kwincorners_config.desktop DESTINATION ${SERVICES_INSTALL_DIR}/kwin)

@@ -692,6 +692,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/wolf/Desktop/Time/KwinCorners/dbus.h",
+			"Mu",
+			"EWIEGA46WW/moc_dbus.cpp",
+			null
+		],
+		[
 			"/home/wolf/Desktop/Time/KwinCorners/kwincorners.h",
 			"Mu",
 			"EWIEGA46WW/moc_kwincorners.cpp",
@@ -706,6 +712,7 @@
 		"KCOREADDONS_LIB",
 		"KGUIADDONS_LIB",
 		"QT_CORE_LIB",
+		"QT_DBUS_LIB",
 		"QT_GUI_LIB",
 		"QT_WIDGETS_LIB",
 		"QT_X11EXTRAS_LIB",
@@ -798,6 +805,7 @@
 		"/usr/lib/qt/mkspecs/linux-g++",
 		"/usr/include/qt/QtX11Extras",
 		"/usr/include/qt/QtXml",
+		"/usr/include/qt/QtDBus",
 		"/usr/include/KF5/KConfigCore",
 		"/usr/include/KF5",
 		"/usr/include/KF5/KCoreAddons",
@@ -859,7 +867,11 @@
 	],
 	"MOC_PREDEFS_FILE" : "/home/wolf/Desktop/Time/KwinCorners/build/kwin4_effect_kwincorners_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [],
+	"MOC_SKIP" : 
+	[
+		"/home/wolf/Desktop/Time/KwinCorners/build/kwineffects_interface.h",
+		"/home/wolf/Desktop/Time/KwinCorners/build/ui_kwincorners_config.h"
+	],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 4,
 	"PARSE_CACHE_FILE" : "/home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/kwin4_effect_kwincorners_autogen.dir/ParseCache.txt",

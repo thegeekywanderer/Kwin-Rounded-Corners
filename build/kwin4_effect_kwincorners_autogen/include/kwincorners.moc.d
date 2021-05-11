@@ -1,8 +1,8 @@
 /home/wolf/Desktop/Time/KwinCorners/build/kwin4_effect_kwincorners_autogen/include/kwincorners.moc: /home/wolf/Desktop/Time/KwinCorners/kwincorners.cpp \
   /home/wolf/Desktop/Time/KwinCorners/build/kwin4_effect_kwincorners_autogen/moc_predefs.h \
   /home/wolf/Desktop/Time/KwinCorners/kwincorners.json \
+  /home/wolf/Desktop/Time/KwinCorners/dbus.h \
   /home/wolf/Desktop/Time/KwinCorners/kwincorners.h \
-  /usr/include/KF5/KConfigCore/KConfig \
   /usr/include/KF5/KConfigCore/KConfigGroup \
   /usr/include/KF5/KConfigCore/KSharedConfig \
   /usr/include/KF5/KConfigCore/conversioncheck.h \
@@ -370,6 +370,11 @@
   /usr/include/qt/QtCore/qvarlengtharray.h \
   /usr/include/qt/QtCore/qvector.h \
   /usr/include/qt/QtCore/qversiontagging.h \
+  /usr/include/qt/QtDBus/QDBusAbstractAdaptor \
+  /usr/include/qt/QtDBus/QDBusConnection \
+  /usr/include/qt/QtDBus/qdbusabstractadaptor.h \
+  /usr/include/qt/QtDBus/qdbusconnection.h \
+  /usr/include/qt/QtDBus/qtdbusglobal.h \
   /usr/include/qt/QtGui/QIcon \
   /usr/include/qt/QtGui/QImage \
   /usr/include/qt/QtGui/QMatrix4x4 \

@@ -1,4 +1,5 @@
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/install/strip.dir
+/home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/install/local.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Service_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5ConfigWidgets_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Crash_QCH.dir
@@ -8,6 +9,7 @@
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Codecs_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/fetch-translations.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/kwin4_effect_kwincorners.dir
+/home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/kwin4_kwincorners_config.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5GlobalAccel_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5GuiAddons_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5CoreAddons_QCH.dir
@@ -19,7 +21,6 @@
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Completion_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5JobWidgets_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Solid_QCH.dir
-/home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/install/local.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5WindowSystem_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Auth_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5KIO_QCH.dir
@@ -29,3 +30,4 @@
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/KF5Bookmarks_QCH.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/rebuild_cache.dir
 /home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/kwin4_effect_kwincorners_autogen.dir
+/home/wolf/Desktop/Time/KwinCorners/build/CMakeFiles/kwin4_kwincorners_config_autogen.dir

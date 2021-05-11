@@ -3,7 +3,7 @@
 
 CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_compilation.cpp.o: kwin4_effect_kwincorners_autogen/mocs_compilation.cpp \
   /usr/include/stdc-predef.h \
-  kwin4_effect_kwincorners_autogen/EWIEGA46WW/moc_kwincorners.cpp \
+  kwin4_effect_kwincorners_autogen/EWIEGA46WW/moc_dbus.cpp \
   /usr/include/c++/10.2.0/memory \
   /usr/include/c++/10.2.0/bits/stl_algobase.h \
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -133,13 +133,10 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/c++/10.2.0/bits/atomic_lockfree_defines.h \
   /usr/include/c++/10.2.0/backward/auto_ptr.h \
   /usr/include/c++/10.2.0/cstdint \
-  ../kwincorners.h \
-  /usr/include/kwineffects.h \
-  /usr/include/kwinconfig.h \
-  /usr/include/kwineffects_export.h \
-  /usr/include/kwinglobals.h \
-  /usr/include/qt/QtCore/QCoreApplication \
-  /usr/include/qt/QtCore/qcoreapplication.h \
+  ../dbus.h \
+  /usr/include/qt/QtDBus/QDBusAbstractAdaptor \
+  /usr/include/qt/QtDBus/qdbusabstractadaptor.h \
+  /usr/include/qt/QtDBus/qtdbusglobal.h \
   /usr/include/qt/QtCore/qglobal.h \
   /usr/include/c++/10.2.0/cstddef \
   /usr/include/assert.h \
@@ -180,8 +177,7 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/qt/QtCore/qglobalstatic.h \
   /usr/include/qt/QtCore/qnumeric.h \
   /usr/include/qt/QtCore/qversiontagging.h \
-  /usr/include/qt/QtCore/qstring.h \
-  /usr/include/qt/QtCore/qchar.h \
+  /usr/include/qt/QtCore/qmetatype.h \
   /usr/include/qt/QtCore/qbytearray.h \
   /usr/include/qt/QtCore/qrefcount.h \
   /usr/include/qt/QtCore/qnamespace.h \
@@ -230,23 +226,23 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/error_constants.h \
   /usr/include/c++/10.2.0/stdexcept \
   /usr/include/c++/10.2.0/bits/streambuf.tcc \
+  /usr/include/qt/QtCore/qvarlengtharray.h \
+  /usr/include/qt/QtCore/qcontainerfwd.h \
+  /usr/include/qt/QtCore/qalgorithms.h \
+  /usr/include/qt/QtCore/qcontainertools_impl.h \
+  /usr/include/qt/QtCore/qhashfunctions.h \
+  /usr/include/qt/QtCore/qstring.h \
+  /usr/include/qt/QtCore/qchar.h \
   /usr/include/qt/QtCore/qstringliteral.h \
   /usr/include/qt/QtCore/qstringalgorithms.h \
   /usr/include/qt/QtCore/qstringview.h \
-  /usr/include/qt/QtCore/qobject.h \
-  /usr/include/qt/QtCore/qobjectdefs.h \
-  /usr/include/qt/QtCore/qobjectdefs_impl.h \
-  /usr/include/qt/QtCore/qlist.h \
-  /usr/include/qt/QtCore/qalgorithms.h \
-  /usr/include/qt/QtCore/qiterator.h \
-  /usr/include/qt/QtCore/qhashfunctions.h \
   /usr/include/qt/QtCore/qpair.h \
   /usr/include/c++/10.2.0/numeric \
   /usr/include/c++/10.2.0/bits/stl_numeric.h \
   /usr/include/c++/10.2.0/functional \
   /usr/include/c++/10.2.0/bits/std_function.h \
-  /usr/include/qt/QtCore/qvector.h \
-  /usr/include/qt/QtCore/qcontainertools_impl.h \
+  /usr/include/qt/QtCore/qobjectdefs.h \
+  /usr/include/qt/QtCore/qobjectdefs_impl.h \
   /usr/include/c++/10.2.0/vector \
   /usr/include/c++/10.2.0/bits/stl_vector.h \
   /usr/include/c++/10.2.0/bits/stl_bvector.h \
@@ -254,6 +250,15 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/c++/10.2.0/list \
   /usr/include/c++/10.2.0/bits/stl_list.h \
   /usr/include/c++/10.2.0/bits/list.tcc \
+  /usr/include/c++/10.2.0/map \
+  /usr/include/c++/10.2.0/bits/stl_tree.h \
+  /usr/include/c++/10.2.0/bits/stl_map.h \
+  /usr/include/c++/10.2.0/bits/stl_multimap.h \
+  /usr/include/c++/10.2.0/bits/erase_if.h \
+  /usr/include/qt/QtCore/qvariant.h \
+  /usr/include/qt/QtCore/qlist.h \
+  /usr/include/qt/QtCore/qiterator.h \
+  /usr/include/qt/QtCore/qvector.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/syslimits.h \
   /usr/include/limits.h \
@@ -267,20 +272,22 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/qt/QtCore/qstringlist.h \
   /usr/include/qt/QtCore/qregexp.h \
   /usr/include/qt/QtCore/qstringmatcher.h \
+  /usr/include/qt/QtCore/qmap.h \
+  /usr/include/qt/QtCore/qhash.h \
+  /usr/include/qt/QtCore/qobject.h \
   /usr/include/qt/QtCore/qscopedpointer.h \
-  /usr/include/qt/QtCore/qmetatype.h \
-  /usr/include/qt/QtCore/qvarlengtharray.h \
-  /usr/include/qt/QtCore/qcontainerfwd.h \
-  /usr/include/c++/10.2.0/map \
-  /usr/include/c++/10.2.0/bits/stl_tree.h \
-  /usr/include/c++/10.2.0/bits/stl_map.h \
-  /usr/include/c++/10.2.0/bits/stl_multimap.h \
-  /usr/include/c++/10.2.0/bits/erase_if.h \
   /usr/include/qt/QtCore/qobject_impl.h \
   /usr/include/c++/10.2.0/chrono \
   /usr/include/c++/10.2.0/ratio \
   /usr/include/c++/10.2.0/ctime \
   /usr/include/c++/10.2.0/bits/parse_numbers.h \
+  ../kwincorners.h \
+  /usr/include/kwineffects.h \
+  /usr/include/kwinconfig.h \
+  /usr/include/kwineffects_export.h \
+  /usr/include/kwinglobals.h \
+  /usr/include/qt/QtCore/QCoreApplication \
+  /usr/include/qt/QtCore/qcoreapplication.h \
   /usr/include/qt/QtCore/qcoreevent.h \
   /usr/include/qt/QtCore/qeventloop.h \
   /usr/include/qt/QtGui/QImage \
@@ -308,8 +315,6 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/qt/QtCore/qpoint.h \
   /usr/include/qt/QtCore/QVariant \
   /usr/include/qt/QtCore/qvariant.h \
-  /usr/include/qt/QtCore/qmap.h \
-  /usr/include/qt/QtCore/qhash.h \
   /usr/include/kwin_export.h \
   /usr/include/xcb/xcb.h \
   /usr/include/sys/uio.h \
@@ -345,7 +350,6 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/qt/QtCore/qdebug.h \
   /usr/include/qt/QtCore/qtextstream.h \
   /usr/include/qt/QtCore/qlocale.h \
-  /usr/include/qt/QtCore/qvariant.h \
   /usr/include/qt/QtCore/qset.h \
   /usr/include/qt/QtCore/qcontiguouscache.h \
   /usr/include/qt/QtCore/QList \
@@ -403,13 +407,21 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_co
   /usr/include/KF5/KWindowSystem/netwm_def.h \
   /usr/include/qt/QtCore/QFlags \
   /usr/include/qt/QtCore/qflags.h \
-  /usr/include/c++/10.2.0/climits
+  /usr/include/c++/10.2.0/climits \
+  /usr/include/KF5/KConfigCore/KConfigGroup \
+  /usr/include/KF5/KConfigCore/kconfiggroup.h \
+  /usr/include/KF5/KConfigCore/conversioncheck.h \
+  /usr/include/qt/QtCore/QDate \
+  /usr/include/qt/QtCore/qdatetime.h \
+  kwin4_effect_kwincorners_autogen/EWIEGA46WW/moc_kwincorners.cpp \
+  ../kwincorners.h
 
 CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/stdc-predef.h \
-  /usr/include/qt/QtGui/QPainter \
-  /usr/include/qt/QtGui/qpainter.h \
-  /usr/include/qt/QtGui/qtguiglobal.h \
+  ../dbus.h \
+  /usr/include/qt/QtDBus/QDBusAbstractAdaptor \
+  /usr/include/qt/QtDBus/qdbusabstractadaptor.h \
+  /usr/include/qt/QtDBus/qtdbusglobal.h \
   /usr/include/qt/QtCore/qglobal.h \
   /usr/include/c++/10.2.0/type_traits \
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -520,33 +532,14 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/qt/QtCore/qglobalstatic.h \
   /usr/include/qt/QtCore/qnumeric.h \
   /usr/include/qt/QtCore/qversiontagging.h \
-  /usr/include/qt/QtGui/qtgui-config.h \
-  /usr/include/qt/QtCore/qnamespace.h \
-  /usr/include/qt/QtCore/qrect.h \
-  /usr/include/qt/QtCore/qmargins.h \
-  /usr/include/qt/QtCore/qsize.h \
-  /usr/include/qt/QtCore/qpoint.h \
-  /usr/include/qt/QtCore/qscopedpointer.h \
-  /usr/include/c++/10.2.0/stdlib.h \
-  /usr/include/qt/QtGui/qpixmap.h \
-  /usr/include/qt/QtGui/qpaintdevice.h \
-  /usr/include/qt/QtGui/qwindowdefs.h \
-  /usr/include/qt/QtCore/qobjectdefs.h \
-  /usr/include/qt/QtCore/qobjectdefs_impl.h \
-  /usr/include/qt/QtGui/qcolor.h \
-  /usr/include/qt/QtGui/qrgb.h \
-  /usr/include/qt/QtCore/qstringlist.h \
-  /usr/include/qt/QtCore/qlist.h \
-  /usr/include/qt/QtCore/qalgorithms.h \
-  /usr/include/qt/QtCore/qiterator.h \
+  /usr/include/qt/QtCore/qmetatype.h \
+  /usr/include/qt/QtCore/qbytearray.h \
   /usr/include/qt/QtCore/qrefcount.h \
+  /usr/include/qt/QtCore/qnamespace.h \
   /usr/include/qt/QtCore/qarraydata.h \
   /usr/include/string.h \
   /usr/include/strings.h \
-  /usr/include/qt/QtCore/qhashfunctions.h \
-  /usr/include/qt/QtCore/qstring.h \
-  /usr/include/qt/QtCore/qchar.h \
-  /usr/include/qt/QtCore/qbytearray.h \
+  /usr/include/c++/10.2.0/stdlib.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/stdarg.h \
   /usr/include/c++/10.2.0/string \
   /usr/include/c++/10.2.0/bits/stringfwd.h \
@@ -630,6 +623,13 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/c++/10.2.0/x86_64-pc-linux-gnu/bits/error_constants.h \
   /usr/include/c++/10.2.0/stdexcept \
   /usr/include/c++/10.2.0/bits/streambuf.tcc \
+  /usr/include/qt/QtCore/qvarlengtharray.h \
+  /usr/include/qt/QtCore/qcontainerfwd.h \
+  /usr/include/qt/QtCore/qalgorithms.h \
+  /usr/include/qt/QtCore/qcontainertools_impl.h \
+  /usr/include/qt/QtCore/qhashfunctions.h \
+  /usr/include/qt/QtCore/qstring.h \
+  /usr/include/qt/QtCore/qchar.h \
   /usr/include/qt/QtCore/qstringliteral.h \
   /usr/include/qt/QtCore/qstringalgorithms.h \
   /usr/include/qt/QtCore/qstringview.h \
@@ -643,8 +643,8 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/c++/10.2.0/bits/invoke.h \
   /usr/include/c++/10.2.0/bits/refwrap.h \
   /usr/include/c++/10.2.0/bits/std_function.h \
-  /usr/include/qt/QtCore/qvector.h \
-  /usr/include/qt/QtCore/qcontainertools_impl.h \
+  /usr/include/qt/QtCore/qobjectdefs.h \
+  /usr/include/qt/QtCore/qobjectdefs_impl.h \
   /usr/include/c++/10.2.0/vector \
   /usr/include/c++/10.2.0/bits/stl_uninitialized.h \
   /usr/include/c++/10.2.0/bits/stl_vector.h \
@@ -655,6 +655,15 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/c++/10.2.0/bits/allocated_ptr.h \
   /usr/include/c++/10.2.0/ext/aligned_buffer.h \
   /usr/include/c++/10.2.0/bits/list.tcc \
+  /usr/include/c++/10.2.0/map \
+  /usr/include/c++/10.2.0/bits/stl_tree.h \
+  /usr/include/c++/10.2.0/bits/stl_map.h \
+  /usr/include/c++/10.2.0/bits/stl_multimap.h \
+  /usr/include/c++/10.2.0/bits/erase_if.h \
+  /usr/include/qt/QtCore/qvariant.h \
+  /usr/include/qt/QtCore/qlist.h \
+  /usr/include/qt/QtCore/qiterator.h \
+  /usr/include/qt/QtCore/qvector.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/syslimits.h \
   /usr/include/limits.h \
@@ -665,37 +674,40 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/bits/xopen_lim.h \
   /usr/include/bits/uio_lim.h \
   /usr/include/qt/QtCore/qbytearraylist.h \
+  /usr/include/qt/QtCore/qstringlist.h \
   /usr/include/qt/QtCore/qregexp.h \
   /usr/include/qt/QtCore/qstringmatcher.h \
-  /usr/include/qt/QtGui/qrgba64.h \
-  /usr/include/qt/QtCore/qsharedpointer.h \
-  /usr/include/qt/QtCore/qshareddata.h \
+  /usr/include/qt/QtCore/qmap.h \
   /usr/include/qt/QtCore/qhash.h \
-  /usr/include/qt/QtCore/qsharedpointer_impl.h \
   /usr/include/qt/QtCore/qobject.h \
-  /usr/include/qt/QtCore/qmetatype.h \
-  /usr/include/qt/QtCore/qvarlengtharray.h \
-  /usr/include/qt/QtCore/qcontainerfwd.h \
-  /usr/include/c++/10.2.0/map \
-  /usr/include/c++/10.2.0/bits/stl_tree.h \
-  /usr/include/c++/10.2.0/bits/stl_map.h \
-  /usr/include/c++/10.2.0/bits/stl_multimap.h \
-  /usr/include/c++/10.2.0/bits/erase_if.h \
+  /usr/include/qt/QtCore/qscopedpointer.h \
   /usr/include/qt/QtCore/qobject_impl.h \
   /usr/include/c++/10.2.0/chrono \
   /usr/include/c++/10.2.0/ratio \
   /usr/include/c++/10.2.0/ctime \
   /usr/include/c++/10.2.0/bits/parse_numbers.h \
-  /usr/include/c++/10.2.0/memory \
-  /usr/include/c++/10.2.0/bits/stl_raw_storage_iter.h \
-  /usr/include/c++/10.2.0/bits/ranges_uninitialized.h \
-  /usr/include/c++/10.2.0/ext/concurrence.h \
-  /usr/include/c++/10.2.0/bits/unique_ptr.h \
-  /usr/include/c++/10.2.0/bits/shared_ptr.h \
-  /usr/include/c++/10.2.0/bits/shared_ptr_base.h \
-  /usr/include/c++/10.2.0/bits/shared_ptr_atomic.h \
-  /usr/include/c++/10.2.0/backward/auto_ptr.h \
+  ../kwincorners.h \
+  /usr/include/kwineffects.h \
+  /usr/include/kwinconfig.h \
+  /usr/include/kwineffects_export.h \
+  /usr/include/kwinglobals.h \
+  /usr/include/qt/QtCore/QCoreApplication \
+  /usr/include/qt/QtCore/qcoreapplication.h \
+  /usr/include/qt/QtCore/qcoreevent.h \
+  /usr/include/qt/QtCore/qeventloop.h \
+  /usr/include/qt/QtGui/QImage \
   /usr/include/qt/QtGui/qimage.h \
+  /usr/include/qt/QtGui/qtguiglobal.h \
+  /usr/include/qt/QtGui/qtgui-config.h \
+  /usr/include/qt/QtGui/qcolor.h \
+  /usr/include/qt/QtGui/qrgb.h \
+  /usr/include/qt/QtGui/qrgba64.h \
+  /usr/include/qt/QtGui/qpaintdevice.h \
+  /usr/include/qt/QtGui/qwindowdefs.h \
+  /usr/include/qt/QtCore/qrect.h \
+  /usr/include/qt/QtCore/qmargins.h \
+  /usr/include/qt/QtCore/qsize.h \
+  /usr/include/qt/QtCore/qpoint.h \
   /usr/include/qt/QtGui/qpixelformat.h \
   /usr/include/qt/QtGui/qtransform.h \
   /usr/include/qt/QtGui/qmatrix.h \
@@ -704,31 +716,6 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/qt/QtCore/qdatastream.h \
   /usr/include/qt/QtCore/qiodevice.h \
   /usr/include/qt/QtCore/qline.h \
-  /usr/include/qt/QtGui/qtextoption.h \
-  /usr/include/qt/QtGui/qpen.h \
-  /usr/include/qt/QtGui/qbrush.h \
-  /usr/include/qt/QtGui/qfontinfo.h \
-  /usr/include/qt/QtGui/qfont.h \
-  /usr/include/qt/QtGui/qfontmetrics.h \
-  /usr/include/qt/QtGui/QImage \
-  /usr/include/qt/QtGui/qimage.h \
-  /usr/include/qt/QtCore/QFile \
-  /usr/include/qt/QtCore/qfile.h \
-  /usr/include/qt/QtCore/qfiledevice.h \
-  /usr/include/qt/QtCore/QTextStream \
-  /usr/include/qt/QtCore/qtextstream.h \
-  /usr/include/qt/QtCore/qlocale.h \
-  /usr/include/qt/QtCore/qvariant.h \
-  /usr/include/qt/QtCore/qmap.h \
-  /usr/include/qt/QtCore/QStandardPaths \
-  /usr/include/qt/QtCore/qstandardpaths.h \
-  /usr/include/kwinglplatform.h \
-  /usr/include/kwinglutils_export.h \
-  /usr/include/kwinglobals.h \
-  /usr/include/qt/QtCore/QCoreApplication \
-  /usr/include/qt/QtCore/qcoreapplication.h \
-  /usr/include/qt/QtCore/qcoreevent.h \
-  /usr/include/qt/QtCore/qeventloop.h \
   /usr/include/qt/QtCore/QPoint \
   /usr/include/qt/QtCore/qpoint.h \
   /usr/include/qt/QtCore/QVariant \
@@ -740,11 +727,121 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/bits/uio-ext.h \
   /usr/include/xcb/xproto.h \
   /usr/include/xcb/xcb.h \
-  /usr/include/kwinconfig.h \
-  /usr/include/qt/QtCore/QByteArray \
-  /usr/include/qt/QtCore/qbytearray.h \
+  /usr/include/qt/QtCore/QEasingCurve \
+  /usr/include/qt/QtCore/qeasingcurve.h \
+  /usr/include/qt/QtGui/QIcon \
+  /usr/include/qt/QtGui/qicon.h \
+  /usr/include/qt/QtGui/qpixmap.h \
+  /usr/include/qt/QtCore/qsharedpointer.h \
+  /usr/include/qt/QtCore/qshareddata.h \
+  /usr/include/qt/QtCore/qsharedpointer_impl.h \
+  /usr/include/c++/10.2.0/memory \
+  /usr/include/c++/10.2.0/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/10.2.0/bits/ranges_uninitialized.h \
+  /usr/include/c++/10.2.0/ext/concurrence.h \
+  /usr/include/c++/10.2.0/bits/unique_ptr.h \
+  /usr/include/c++/10.2.0/bits/shared_ptr.h \
+  /usr/include/c++/10.2.0/bits/shared_ptr_base.h \
+  /usr/include/c++/10.2.0/bits/shared_ptr_atomic.h \
+  /usr/include/c++/10.2.0/backward/auto_ptr.h \
+  /usr/include/qt/QtGui/qimage.h \
+  /usr/include/qt/QtCore/QPair \
+  /usr/include/qt/QtCore/qpair.h \
   /usr/include/qt/QtCore/QSet \
   /usr/include/qt/QtCore/qset.h \
+  /usr/include/qt/QtCore/QRect \
+  /usr/include/qt/QtCore/qrect.h \
+  /usr/include/qt/QtGui/QRegion \
+  /usr/include/qt/QtGui/qregion.h \
+  /usr/include/qt/QtGui/QVector2D \
+  /usr/include/qt/QtGui/qvector2d.h \
+  /usr/include/qt/QtGui/QVector3D \
+  /usr/include/qt/QtGui/qvector3d.h \
+  /usr/include/qt/QtCore/QVector \
+  /usr/include/qt/QtCore/qvector.h \
+  /usr/include/qt/QtCore/QLoggingCategory \
+  /usr/include/qt/QtCore/qloggingcategory.h \
+  /usr/include/qt/QtCore/qdebug.h \
+  /usr/include/qt/QtCore/qtextstream.h \
+  /usr/include/qt/QtCore/qlocale.h \
+  /usr/include/qt/QtCore/qset.h \
+  /usr/include/qt/QtCore/qcontiguouscache.h \
+  /usr/include/qt/QtCore/QList \
+  /usr/include/qt/QtCore/qlist.h \
+  /usr/include/qt/QtCore/QHash \
+  /usr/include/qt/QtCore/qhash.h \
+  /usr/include/qt/QtCore/QStack \
+  /usr/include/qt/QtCore/qstack.h \
+  /usr/include/qt/QtCore/QScopedPointer \
+  /usr/include/qt/QtCore/qscopedpointer.h \
+  /usr/include/KF5/KCoreAddons/KPluginFactory \
+  /usr/include/KF5/KCoreAddons/kpluginfactory.h \
+  /usr/include/KF5/KCoreAddons/kcoreaddons_export.h \
+  /usr/include/qt/QtCore/QObject \
+  /usr/include/qt/QtCore/qobject.h \
+  /usr/include/qt/QtCore/QStringList \
+  /usr/include/qt/QtCore/qstringlist.h \
+  /usr/include/KF5/KCoreAddons/kexportplugin.h \
+  /usr/include/qt/QtCore/QPluginLoader \
+  /usr/include/qt/QtCore/qpluginloader.h \
+  /usr/include/qt/QtCore/qlibrary.h \
+  /usr/include/qt/QtCore/qplugin.h \
+  /usr/include/qt/QtCore/qpointer.h \
+  /usr/include/qt/QtCore/qjsonobject.h \
+  /usr/include/qt/QtCore/qjsonvalue.h \
+  /usr/include/qt/QtCore/qcborvalue.h \
+  /usr/include/qt/QtCore/qdatetime.h \
+  /usr/include/qt/QtCore/qcborcommon.h \
+  /usr/include/qt/QtCore/qregularexpression.h \
+  /usr/include/qt/QtCore/qurl.h \
+  /usr/include/qt/QtCore/quuid.h \
+  /usr/include/qt/QtCore/QtPlugin \
+  /usr/include/qt/QtCore/qplugin.h \
+  /usr/include/KF5/KCoreAddons/kcoreaddons_export.h \
+  /usr/include/KF5/KConfigCore/KSharedConfig \
+  /usr/include/KF5/KConfigCore/ksharedconfig.h \
+  /usr/include/qt/QtCore/QExplicitlySharedDataPointer \
+  /usr/include/qt/QtCore/qshareddata.h \
+  /usr/include/KF5/KConfigCore/kconfig.h \
+  /usr/include/KF5/KConfigCore/kconfigbase.h \
+  /usr/include/KF5/KConfigCore/kconfigcore_export.h \
+  /usr/include/qt/QtCore/QtGlobal \
+  /usr/include/qt/QtCore/qglobal.h \
+  /usr/include/qt/QtCore/QByteArray \
+  /usr/include/qt/QtCore/qbytearray.h \
+  /usr/include/qt/QtCore/QStandardPaths \
+  /usr/include/qt/QtCore/qstandardpaths.h \
+  /usr/include/qt/QtCore/QString \
+  /usr/include/qt/QtCore/qstring.h \
+  /usr/include/KF5/KWindowSystem/netwm.h \
+  /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
+  /usr/include/qt/QtCore/QSize \
+  /usr/include/qt/QtCore/qsize.h \
+  /usr/include/KF5/KWindowSystem/config-kwindowsystem.h \
+  /usr/include/KF5/KWindowSystem/netwm_def.h \
+  /usr/include/qt/QtCore/QFlags \
+  /usr/include/qt/QtCore/qflags.h \
+  /usr/include/c++/10.2.0/climits \
+  /usr/include/KF5/KConfigCore/KConfigGroup \
+  /usr/include/KF5/KConfigCore/kconfiggroup.h \
+  /usr/include/KF5/KConfigCore/conversioncheck.h \
+  /usr/include/qt/QtCore/QDate \
+  /usr/include/qt/QtCore/qdatetime.h \
+  /usr/include/qt/QtGui/QPainter \
+  /usr/include/qt/QtGui/qpainter.h \
+  /usr/include/qt/QtGui/qtextoption.h \
+  /usr/include/qt/QtGui/qpen.h \
+  /usr/include/qt/QtGui/qbrush.h \
+  /usr/include/qt/QtGui/qfontinfo.h \
+  /usr/include/qt/QtGui/qfont.h \
+  /usr/include/qt/QtGui/qfontmetrics.h \
+  /usr/include/qt/QtCore/QFile \
+  /usr/include/qt/QtCore/qfile.h \
+  /usr/include/qt/QtCore/qfiledevice.h \
+  /usr/include/qt/QtCore/QTextStream \
+  /usr/include/qt/QtCore/qtextstream.h \
+  /usr/include/kwinglplatform.h \
+  /usr/include/kwinglutils_export.h \
   /usr/include/kwinglutils.h \
   /usr/include/kwinglutils_funcs.h \
   /usr/include/epoxy/gl.h \
@@ -753,111 +850,29 @@ CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.o: ../kwincorners.cpp \
   /usr/include/epoxy/gl_generated.h \
   /usr/include/inttypes.h \
   /usr/include/kwingltexture.h \
-  /usr/include/qt/QtCore/QSize \
-  /usr/include/qt/QtCore/qsize.h \
-  /usr/include/qt/QtGui/QRegion \
-  /usr/include/qt/QtGui/qregion.h \
   /usr/include/qt/QtCore/QSharedPointer \
   /usr/include/qt/QtCore/qsharedpointer.h \
-  /usr/include/qt/QtCore/QExplicitlySharedDataPointer \
-  /usr/include/qt/QtCore/qshareddata.h \
   /usr/include/qt/QtGui/QMatrix4x4 \
   /usr/include/qt/QtGui/qmatrix4x4.h \
   /usr/include/qt/QtGui/qvector3d.h \
   /usr/include/qt/QtGui/qvector4d.h \
   /usr/include/qt/QtGui/qquaternion.h \
   /usr/include/qt/QtGui/qgenericmatrix.h \
-  /usr/include/qt/QtCore/qdebug.h \
-  /usr/include/qt/QtCore/qtextstream.h \
-  /usr/include/qt/QtCore/qset.h \
-  /usr/include/qt/QtCore/qcontiguouscache.h \
-  /usr/include/qt/QtCore/QStack \
-  /usr/include/qt/QtCore/qstack.h \
   /usr/include/KF5/KWindowSystem/kwindowsystem.h \
-  /usr/include/KF5/KWindowSystem/kwindowsystem_export.h \
-  /usr/include/qt/QtCore/QObject \
-  /usr/include/qt/QtCore/qobject.h \
   /usr/include/qt/QtGui/QWidgetList \
   /usr/include/qt/QtGui/qwindowdefs.h \
   /usr/include/KF5/KWindowSystem/netwm_def.h \
-  /usr/include/qt/QtCore/QFlags \
-  /usr/include/qt/QtCore/qflags.h \
   /usr/include/KF5/KWindowSystem/kwindowinfo.h \
-  /usr/include/qt/QtCore/QStringList \
-  /usr/include/qt/QtCore/qstringlist.h \
-  /usr/include/KF5/KConfigCore/KConfig \
-  /usr/include/KF5/KConfigCore/kconfig.h \
-  /usr/include/KF5/KConfigCore/kconfigbase.h \
-  /usr/include/KF5/KConfigCore/kconfigcore_export.h \
-  /usr/include/qt/QtCore/QtGlobal \
-  /usr/include/qt/QtCore/qglobal.h \
-  /usr/include/qt/QtCore/QList \
-  /usr/include/qt/QtCore/qlist.h \
-  /usr/include/qt/QtCore/QString \
-  /usr/include/qt/QtCore/qstring.h \
-  /usr/include/KF5/KConfigCore/KConfigGroup \
-  /usr/include/KF5/KConfigCore/kconfiggroup.h \
-  /usr/include/KF5/KConfigCore/conversioncheck.h \
-  /usr/include/qt/QtCore/QDate \
-  /usr/include/qt/QtCore/qdatetime.h \
-  /usr/include/qt/QtCore/QRect \
-  /usr/include/qt/QtCore/qrect.h \
-  ../kwincorners.h \
-  /usr/include/kwineffects.h \
-  /usr/include/kwineffects_export.h \
-  /usr/include/qt/QtCore/QEasingCurve \
-  /usr/include/qt/QtCore/qeasingcurve.h \
-  /usr/include/qt/QtGui/QIcon \
-  /usr/include/qt/QtGui/qicon.h \
-  /usr/include/qt/QtCore/QPair \
-  /usr/include/qt/QtCore/qpair.h \
-  /usr/include/qt/QtGui/QVector2D \
-  /usr/include/qt/QtGui/qvector2d.h \
-  /usr/include/qt/QtGui/QVector3D \
-  /usr/include/qt/QtGui/qvector3d.h \
-  /usr/include/qt/QtCore/QVector \
-  /usr/include/qt/QtCore/qvector.h \
-  /usr/include/qt/QtCore/QLoggingCategory \
-  /usr/include/qt/QtCore/qloggingcategory.h \
-  /usr/include/qt/QtCore/QHash \
-  /usr/include/qt/QtCore/qhash.h \
-  /usr/include/qt/QtCore/QScopedPointer \
-  /usr/include/qt/QtCore/qscopedpointer.h \
-  /usr/include/KF5/KCoreAddons/KPluginFactory \
-  /usr/include/KF5/KCoreAddons/kpluginfactory.h \
-  /usr/include/KF5/KCoreAddons/kcoreaddons_export.h \
-  /usr/include/KF5/KCoreAddons/kexportplugin.h \
-  /usr/include/qt/QtCore/QPluginLoader \
-  /usr/include/qt/QtCore/qpluginloader.h \
-  /usr/include/qt/QtCore/qlibrary.h \
-  /usr/include/qt/QtCore/qplugin.h \
-  /usr/include/qt/QtCore/qpointer.h \
-  /usr/include/qt/QtCore/qjsonobject.h \
-  /usr/include/qt/QtCore/qjsonvalue.h \
-  /usr/include/qt/QtCore/qcborvalue.h \
-  /usr/include/qt/QtCore/qdatetime.h \
-  /usr/include/qt/QtCore/qcborcommon.h \
-  /usr/include/qt/QtCore/qregularexpression.h \
-  /usr/include/qt/QtCore/qurl.h \
-  /usr/include/qt/QtCore/quuid.h \
-  /usr/include/qt/QtCore/QtPlugin \
-  /usr/include/qt/QtCore/qplugin.h \
-  /usr/include/KF5/KCoreAddons/kcoreaddons_export.h \
-  /usr/include/KF5/KConfigCore/KSharedConfig \
-  /usr/include/KF5/KConfigCore/ksharedconfig.h \
-  /usr/include/KF5/KConfigCore/kconfig.h \
-  /usr/include/KF5/KWindowSystem/netwm.h \
-  /usr/include/KF5/KWindowSystem/config-kwindowsystem.h \
-  /usr/include/KF5/KWindowSystem/netwm_def.h \
-  /usr/include/c++/10.2.0/climits \
+  /usr/include/qt/QtDBus/QDBusConnection \
+  /usr/include/qt/QtDBus/qdbusconnection.h \
   kwin4_effect_kwincorners_autogen/include/kwincorners.moc
 
 
 kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
-/usr/include/qt/QtCore/QDate:
+/usr/include/qt/QtDBus/qdbusconnection.h:
 
-/usr/include/KF5/KConfigCore/kconfiggroup.h:
+/usr/include/qt/QtDBus/QDBusConnection:
 
 /usr/include/qt/QtGui/qquaternion.h:
 
@@ -888,6 +903,10 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/qt/QtGui/QPainter:
 
 ../kwincorners.cpp:
+
+/usr/include/qt/QtCore/QDate:
+
+/usr/include/KF5/KConfigCore/kconfiggroup.h:
 
 /usr/include/qt/QtCore/QTextStream:
 
@@ -975,10 +994,6 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/kwin_export.h:
 
-/usr/include/qt/QtCore/qhash.h:
-
-/usr/include/qt/QtCore/qmap.h:
-
 /usr/include/qt/QtCore/qdebug.h:
 
 /usr/include/qt/QtCore/QVariant:
@@ -1015,21 +1030,25 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/qt/QtCore/qeventloop.h:
 
+/usr/include/qt/QtCore/QtPlugin:
+
+/usr/include/qt/QtCore/qcoreapplication.h:
+
+/usr/include/kwinglobals.h:
+
+/usr/include/kwineffects_export.h:
+
+/usr/include/xcb/xcb.h:
+
+/usr/include/kwinconfig.h:
+
 /usr/include/qt/QtGui/QImage:
 
 /usr/include/c++/10.2.0/bits/parse_numbers.h:
 
-/usr/include/c++/10.2.0/bits/stl_multimap.h:
+/usr/include/qt/QtCore/qhash.h:
 
-/usr/include/c++/10.2.0/bits/stl_map.h:
-
-/usr/include/kwingltexture.h:
-
-/usr/include/c++/10.2.0/map:
-
-/usr/include/qt/QtCore/qvarlengtharray.h:
-
-/usr/include/qt/QtCore/qmetatype.h:
+/usr/include/qt/QtCore/qmap.h:
 
 /usr/include/qt/QtCore/qregexp.h:
 
@@ -1051,6 +1070,10 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/bits/local_lim.h:
 
+/usr/include/limits.h:
+
+/usr/include/qt/QtCore/qvector.h:
+
 /usr/include/qt/QtCore/QStandardPaths:
 
 /usr/include/c++/10.2.0/bits/std_function.h:
@@ -1065,6 +1088,10 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/c++/10.2.0/new:
 
+/usr/include/qt/QtCore/QCoreApplication:
+
+/usr/include/c++/10.2.0/bits/iterator_concepts.h:
+
 /usr/include/qt/QtCore/qprocessordetection.h:
 
 /usr/include/c++/10.2.0/bits/range_access.h:
@@ -1074,6 +1101,12 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/c++/10.2.0/bits/shared_ptr.h:
 
 /usr/include/c++/10.2.0/cstdio:
+
+/usr/include/KF5/KCoreAddons/KPluginFactory:
+
+/usr/include/qt/QtCore/qobject.h:
+
+/usr/include/c++/10.2.0/utility:
 
 /usr/include/c++/10.2.0/ext/aligned_buffer.h:
 
@@ -1141,6 +1174,10 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/c++/10.2.0/bits/algorithmfwd.h:
 
+/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/limits.h:
+
+/usr/include/bits/endian.h:
+
 /usr/include/qt/QtCore/qline.h:
 
 /usr/include/bits/timesize.h:
@@ -1163,10 +1200,6 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/c++/10.2.0/bits/nested_exception.h:
 
-/usr/include/qt/QtGui/QWidgetList:
-
-/usr/include/c++/10.2.0/bits/refwrap.h:
-
 /usr/include/c++/10.2.0/ext/atomicity.h:
 
 /usr/include/sched.h:
@@ -1186,6 +1219,18 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/bits/types/FILE.h:
 
 /usr/include/c++/10.2.0/bits/int_limits.h:
+
+/usr/include/qt/QtGui/qmatrix.h:
+
+../kwincorners.h:
+
+kwin4_effect_kwincorners_autogen/EWIEGA46WW/moc_dbus.cpp:
+
+/usr/include/qt/QtCore/qdatetime.h:
+
+/usr/include/kwineffects.h:
+
+/usr/include/c++/10.2.0/ext/concurrence.h:
 
 /usr/include/qt/QtCore/QSharedPointer:
 
@@ -1213,10 +1258,6 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/gnu/stubs.h:
 
-/usr/include/qt/QtCore/qvariant.h:
-
-/usr/include/c++/10.2.0/bits/exception.h:
-
 /usr/include/stdc-predef.h:
 
 /usr/include/c++/10.2.0/tuple:
@@ -1228,6 +1269,22 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/qt/QtCore/qregularexpression.h:
 
 /usr/include/c++/10.2.0/exception:
+
+/usr/include/KF5/KConfigCore/ksharedconfig.h:
+
+/usr/include/c++/10.2.0/concepts:
+
+/usr/include/c++/10.2.0/bits/stl_function.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/syslimits.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/c++/10.2.0/ctime:
+
+/usr/include/c++/10.2.0/list:
+
+/usr/include/c++/10.2.0/bits/stl_iterator_base_funcs.h:
 
 /usr/include/c++/10.2.0/backward/binders.h:
 
@@ -1242,16 +1299,6 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 /usr/include/c++/10.2.0/memory:
 
 /usr/include/time.h:
-
-/usr/include/KF5/KConfigCore/ksharedconfig.h:
-
-/usr/include/c++/10.2.0/concepts:
-
-/usr/include/c++/10.2.0/bits/stl_function.h:
-
-/usr/include/c++/10.2.0/ctime:
-
-/usr/include/c++/10.2.0/list:
 
 /usr/include/qt/QtGui/qpaintdevice.h:
 
@@ -1271,15 +1318,15 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/c++/10.2.0/bits/stl_pair.h:
 
-/usr/include/qt/QtGui/qmatrix.h:
-
-../kwincorners.h:
-
 /usr/include/c++/10.2.0/bits/exception_defines.h:
 
 /usr/include/c++/10.2.0/atomic:
 
 /usr/include/c++/10.2.0/ext/type_traits.h:
+
+/usr/include/bits/posix1_lim.h:
+
+/usr/include/wchar.h:
 
 /usr/include/qt/QtCore/qglobal.h:
 
@@ -1297,24 +1344,6 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/qt/QtCore/qpair.h:
 
-/usr/include/c++/10.2.0/bits/stl_iterator_base_funcs.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/qt/QtCore/QEasingCurve:
-
-/usr/include/c++/10.2.0/bits/stl_vector.h:
-
-/usr/include/KF5/KConfigCore/KConfigGroup:
-
-/usr/include/c++/10.2.0/bits/alloc_traits.h:
-
-/usr/include/bits/types/struct_timeval.h:
-
-/usr/include/qt/QtCore/qatomic.h:
-
-/usr/include/c++/10.2.0/bits/postypes.h:
-
 /usr/include/c++/10.2.0/type_traits:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/stdarg.h:
@@ -1327,11 +1356,13 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/stdint.h:
 
-/usr/include/qt/QtGui/qpainter.h:
-
-/usr/include/bits/types/struct_FILE.h:
+/usr/include/c++/10.2.0/bits/stl_multimap.h:
 
 /usr/include/c++/10.2.0/bits/ptr_traits.h:
+
+/usr/include/qt/QtGui/QWidgetList:
+
+/usr/include/c++/10.2.0/bits/refwrap.h:
 
 /usr/include/gnu/stubs-64.h:
 
@@ -1363,6 +1394,8 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/bits/types/cookie_io_functions_t.h:
 
+/usr/include/qt/QtCore/qvarlengtharray.h:
+
 /usr/include/c++/10.2.0/bits/hash_bytes.h:
 
 /usr/include/errno.h:
@@ -1383,17 +1416,21 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/c++/10.2.0/bits/stl_uninitialized.h:
 
+/usr/include/KF5/KConfigCore/KConfigGroup:
+
+/usr/include/c++/10.2.0/bits/alloc_traits.h:
+
+/usr/include/bits/types/struct_timeval.h:
+
+/usr/include/qt/QtCore/qatomic.h:
+
+/usr/include/c++/10.2.0/bits/postypes.h:
+
 /usr/include/bits/waitstatus.h:
 
 /usr/include/bits/wchar.h:
 
 /usr/include/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/c++/10.2.0/bits/erase_if.h:
-
-/usr/include/bits/timex.h:
-
-/usr/include/c++/10.2.0/bits/stl_algo.h:
 
 /usr/include/KF5/KWindowSystem/kwindowsystem.h:
 
@@ -1427,35 +1464,21 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/qt/QtCore/qstringalgorithms.h:
 
+../dbus.h:
+
 /usr/include/c++/10.2.0/bits/atomic_lockfree_defines.h:
 
 /usr/include/c++/10.2.0/backward/auto_ptr.h:
 
-/usr/include/qt/QtCore/qdatetime.h:
+/usr/include/c++/10.2.0/bits/stl_map.h:
 
-/usr/include/c++/10.2.0/ext/concurrence.h:
+/usr/include/qt/QtDBus/qdbusabstractadaptor.h:
 
-/usr/include/kwineffects.h:
+/usr/include/qt/QtGui/qpainter.h:
 
-/usr/include/xcb/xcb.h:
+/usr/include/bits/types/struct_FILE.h:
 
-/usr/include/kwinconfig.h:
-
-/usr/include/bits/types/error_t.h:
-
-/usr/include/kwineffects_export.h:
-
-/usr/include/kwinglobals.h:
-
-/usr/include/c++/10.2.0/bits/iterator_concepts.h:
-
-/usr/include/qt/QtCore/QCoreApplication:
-
-/usr/include/alloca.h:
-
-/usr/include/qt/QtCore/QtPlugin:
-
-/usr/include/qt/QtCore/qcoreapplication.h:
+/usr/include/qt/QtDBus/qtdbusglobal.h:
 
 /usr/include/assert.h:
 
@@ -1493,9 +1516,9 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/endian.h:
 
-/usr/include/qt/QtCore/qcontainerfwd.h:
-
 /usr/include/c++/10.2.0/bits/shared_ptr_atomic.h:
+
+/usr/include/qt/QtCore/qcontainerfwd.h:
 
 /usr/include/c++/10.2.0/bits/vector.tcc:
 
@@ -1509,17 +1532,13 @@ kwin4_effect_kwincorners_autogen/include/kwincorners.moc:
 
 /usr/include/bits/select.h:
 
+/usr/include/alloca.h:
+
 /usr/include/c++/10.2.0/bits/std_abs.h:
 
 /usr/include/kwinglutils_funcs.h:
 
 /usr/include/c++/10.2.0/bits/stl_heap.h:
-
-/usr/include/KF5/KCoreAddons/KPluginFactory:
-
-/usr/include/c++/10.2.0/utility:
-
-/usr/include/qt/QtCore/qobject.h:
 
 kwin4_effect_kwincorners_autogen/EWIEGA46WW/moc_kwincorners.cpp:
 
@@ -1551,13 +1570,9 @@ kwin4_effect_kwincorners_autogen/EWIEGA46WW/moc_kwincorners.cpp:
 
 /usr/include/qt/QtCore/qversiontagging.h:
 
-/usr/include/qt/QtCore/qvector.h:
+/usr/include/qt/QtCore/qmetatype.h:
 
-/usr/include/limits.h:
-
-/usr/include/qt/QtCore/qchar.h:
-
-/usr/include/asm-generic/errno.h:
+/usr/include/c++/10.2.0/bits/basic_string.h:
 
 /usr/include/qt/QtCore/qbytearray.h:
 
@@ -1603,12 +1618,6 @@ kwin4_effect_kwincorners_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/10.2.0/bits/cxxabi_forced.h:
 
-/usr/include/c++/10.2.0/bits/basic_string.h:
-
-/usr/include/bits/endian.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/limits.h:
-
 /usr/include/KF5/KConfigCore/conversioncheck.h:
 
 /usr/include/bits/long-double.h:
@@ -1617,7 +1626,23 @@ kwin4_effect_kwincorners_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/10.2.0/cerrno:
 
+/usr/include/linux/errno.h:
+
+/usr/include/qt/QtCore/QEasingCurve:
+
+/usr/include/c++/10.2.0/bits/stl_vector.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/qt/QtCore/qchar.h:
+
 /usr/include/asm-generic/errno-base.h:
+
+/usr/include/kwingltexture.h:
+
+/usr/include/c++/10.2.0/map:
+
+/usr/include/bits/types/error_t.h:
 
 /usr/include/bits/cpu-set.h:
 
@@ -1649,25 +1674,9 @@ kwin4_effect_kwincorners_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/10.2.0/bits/streambuf.tcc:
 
-/usr/include/KF5/KCoreAddons/kexportplugin.h:
-
-/usr/include/qt/QtCore/qstringmatcher.h:
-
-/usr/include/qt/QtCore/qobjectdefs.h:
-
-/usr/include/qt/QtCore/QObject:
-
-/usr/include/qt/QtCore/qobjectdefs_impl.h:
-
 /usr/include/bits/types/__fpos64_t.h:
 
 /usr/include/qt/QtCore/qalgorithms.h:
-
-/usr/include/KF5/KConfigCore/KConfig:
-
-/usr/include/c++/10.2.0/bits/locale_classes.h:
-
-/usr/include/qt/QtCore/qiterator.h:
 
 /usr/include/c++/10.2.0/bits/stl_tempbuf.h:
 
@@ -1677,16 +1686,34 @@ kwin4_effect_kwincorners_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/10.2.0/functional:
 
+/usr/include/KF5/KCoreAddons/kexportplugin.h:
+
+/usr/include/qt/QtCore/qstringmatcher.h:
+
+/usr/include/qt/QtCore/qobjectdefs.h:
+
+/usr/include/bits/timex.h:
+
+/usr/include/c++/10.2.0/bits/stl_algo.h:
+
+/usr/include/c++/10.2.0/bits/erase_if.h:
+
+/usr/include/qt/QtCore/QObject:
+
+/usr/include/qt/QtCore/qobjectdefs_impl.h:
+
 /usr/include/qt/QtCore/qbasicatomic.h:
 
 /usr/include/c++/10.2.0/bits/stl_bvector.h:
 
+/usr/include/qt/QtDBus/QDBusAbstractAdaptor:
+
 /usr/include/c++/10.2.0/bits/stl_list.h:
 
-/usr/include/bits/byteswap.h:
+/usr/include/c++/10.2.0/bits/exception.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include-fixed/syslimits.h:
+/usr/include/qt/QtCore/qvariant.h:
 
-/usr/include/wchar.h:
+/usr/include/c++/10.2.0/bits/locale_classes.h:
 
-/usr/include/bits/posix1_lim.h:
+/usr/include/qt/QtCore/qiterator.h:

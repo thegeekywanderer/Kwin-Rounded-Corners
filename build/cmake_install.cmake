@@ -90,6 +90,34 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xkwin4_effect_kwincornersx" OR NOT C
 file(INSTALL DESTINATION "/usr/share/kwin/shaders/1.10" TYPE FILE FILES "/home/wolf/Desktop/Time/KwinCorners/shaders_110/kwincorners.frag")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xkwin4_effect_kwincornersx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so"
+         RPATH "")
+  endif()
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/usr/lib/qt/plugins/kwin/effects/configs" TYPE MODULE FILES "/home/wolf/Desktop/Time/KwinCorners/build/kwin4_kwincorners_config.so")
+  if(EXISTS "$ENV{DESTDIR}/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so")
+    if(CMAKE_INSTALL_DO_STRIP)
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/usr/lib/qt/plugins/kwin/effects/configs/kwin4_kwincorners_config.so")
+    endif()
+  endif()
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xkwin4_effect_kwincornersx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/kservices5/kwin" TYPE FILE FILES "/home/wolf/Desktop/Time/KwinCorners/kwincorners_config.desktop")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()

@@ -77,6 +77,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -107,18 +119,6 @@ test:
 # Special rule for the target test
 test/fast: test
 .PHONY : test/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -274,6 +274,19 @@ kwin4_effect_kwincorners: cmake_check_build_system
 kwin4_effect_kwincorners/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_effect_kwincorners.dir/build.make CMakeFiles/kwin4_effect_kwincorners.dir/build
 .PHONY : kwin4_effect_kwincorners/fast
+
+#=============================================================================
+# Target rules for targets named kwin4_kwincorners_config
+
+# Build rule for target.
+kwin4_kwincorners_config: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kwin4_kwincorners_config
+.PHONY : kwin4_kwincorners_config
+
+# fast build rule for target.
+kwin4_kwincorners_config/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/build
+.PHONY : kwin4_kwincorners_config/fast
 
 #=============================================================================
 # Target rules for targets named KF5GlobalAccel_QCH
@@ -483,6 +496,19 @@ kwin4_effect_kwincorners_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_effect_kwincorners_autogen.dir/build.make CMakeFiles/kwin4_effect_kwincorners_autogen.dir/build
 .PHONY : kwin4_effect_kwincorners_autogen/fast
 
+#=============================================================================
+# Target rules for targets named kwin4_kwincorners_config_autogen
+
+# Build rule for target.
+kwin4_kwincorners_config_autogen: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kwin4_kwincorners_config_autogen
+.PHONY : kwin4_kwincorners_config_autogen
+
+# fast build rule for target.
+kwin4_kwincorners_config_autogen/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config_autogen.dir/build.make CMakeFiles/kwin4_kwincorners_config_autogen.dir/build
+.PHONY : kwin4_kwincorners_config_autogen/fast
+
 kwin4_effect_kwincorners_autogen/mocs_compilation.o: kwin4_effect_kwincorners_autogen/mocs_compilation.cpp.o
 .PHONY : kwin4_effect_kwincorners_autogen/mocs_compilation.o
 
@@ -507,6 +533,30 @@ kwin4_effect_kwincorners_autogen/mocs_compilation.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_effect_kwincorners.dir/build.make CMakeFiles/kwin4_effect_kwincorners.dir/kwin4_effect_kwincorners_autogen/mocs_compilation.cpp.s
 .PHONY : kwin4_effect_kwincorners_autogen/mocs_compilation.cpp.s
 
+kwin4_kwincorners_config_autogen/mocs_compilation.o: kwin4_kwincorners_config_autogen/mocs_compilation.cpp.o
+.PHONY : kwin4_kwincorners_config_autogen/mocs_compilation.o
+
+# target to build an object file
+kwin4_kwincorners_config_autogen/mocs_compilation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwin4_kwincorners_config_autogen/mocs_compilation.cpp.o
+.PHONY : kwin4_kwincorners_config_autogen/mocs_compilation.cpp.o
+
+kwin4_kwincorners_config_autogen/mocs_compilation.i: kwin4_kwincorners_config_autogen/mocs_compilation.cpp.i
+.PHONY : kwin4_kwincorners_config_autogen/mocs_compilation.i
+
+# target to preprocess a source file
+kwin4_kwincorners_config_autogen/mocs_compilation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwin4_kwincorners_config_autogen/mocs_compilation.cpp.i
+.PHONY : kwin4_kwincorners_config_autogen/mocs_compilation.cpp.i
+
+kwin4_kwincorners_config_autogen/mocs_compilation.s: kwin4_kwincorners_config_autogen/mocs_compilation.cpp.s
+.PHONY : kwin4_kwincorners_config_autogen/mocs_compilation.s
+
+# target to generate assembly for a file
+kwin4_kwincorners_config_autogen/mocs_compilation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwin4_kwincorners_config_autogen/mocs_compilation.cpp.s
+.PHONY : kwin4_kwincorners_config_autogen/mocs_compilation.cpp.s
+
 kwincorners.o: kwincorners.cpp.o
 .PHONY : kwincorners.o
 
@@ -530,6 +580,54 @@ kwincorners.s: kwincorners.cpp.s
 kwincorners.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_effect_kwincorners.dir/build.make CMakeFiles/kwin4_effect_kwincorners.dir/kwincorners.cpp.s
 .PHONY : kwincorners.cpp.s
+
+kwincorners_config.o: kwincorners_config.cpp.o
+.PHONY : kwincorners_config.o
+
+# target to build an object file
+kwincorners_config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwincorners_config.cpp.o
+.PHONY : kwincorners_config.cpp.o
+
+kwincorners_config.i: kwincorners_config.cpp.i
+.PHONY : kwincorners_config.i
+
+# target to preprocess a source file
+kwincorners_config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwincorners_config.cpp.i
+.PHONY : kwincorners_config.cpp.i
+
+kwincorners_config.s: kwincorners_config.cpp.s
+.PHONY : kwincorners_config.s
+
+# target to generate assembly for a file
+kwincorners_config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwincorners_config.cpp.s
+.PHONY : kwincorners_config.cpp.s
+
+kwineffects_interface.o: kwineffects_interface.cpp.o
+.PHONY : kwineffects_interface.o
+
+# target to build an object file
+kwineffects_interface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwineffects_interface.cpp.o
+.PHONY : kwineffects_interface.cpp.o
+
+kwineffects_interface.i: kwineffects_interface.cpp.i
+.PHONY : kwineffects_interface.i
+
+# target to preprocess a source file
+kwineffects_interface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwineffects_interface.cpp.i
+.PHONY : kwineffects_interface.cpp.i
+
+kwineffects_interface.s: kwineffects_interface.cpp.s
+.PHONY : kwineffects_interface.s
+
+# target to generate assembly for a file
+kwineffects_interface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kwin4_kwincorners_config.dir/build.make CMakeFiles/kwin4_kwincorners_config.dir/kwineffects_interface.cpp.s
+.PHONY : kwineffects_interface.cpp.s
 
 # Help Target
 help:
@@ -566,14 +664,25 @@ help:
 	@echo "... KF5XmlGui_QCH"
 	@echo "... fetch-translations"
 	@echo "... kwin4_effect_kwincorners_autogen"
+	@echo "... kwin4_kwincorners_config_autogen"
 	@echo "... uninstall"
 	@echo "... kwin4_effect_kwincorners"
+	@echo "... kwin4_kwincorners_config"
 	@echo "... kwin4_effect_kwincorners_autogen/mocs_compilation.o"
 	@echo "... kwin4_effect_kwincorners_autogen/mocs_compilation.i"
 	@echo "... kwin4_effect_kwincorners_autogen/mocs_compilation.s"
+	@echo "... kwin4_kwincorners_config_autogen/mocs_compilation.o"
+	@echo "... kwin4_kwincorners_config_autogen/mocs_compilation.i"
+	@echo "... kwin4_kwincorners_config_autogen/mocs_compilation.s"
 	@echo "... kwincorners.o"
 	@echo "... kwincorners.i"
 	@echo "... kwincorners.s"
+	@echo "... kwincorners_config.o"
+	@echo "... kwincorners_config.i"
+	@echo "... kwincorners_config.s"
+	@echo "... kwineffects_interface.o"
+	@echo "... kwineffects_interface.i"
+	@echo "... kwineffects_interface.s"
 .PHONY : help
 
 

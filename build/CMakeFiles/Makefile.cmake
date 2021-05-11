@@ -340,6 +340,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "prefix.sh"
   "ecm_uninstall.cmake"
   "CMakeFiles/kwin4_effect_kwincorners_autogen.dir/AutogenInfo.json"
+  "CMakeFiles/kwin4_kwincorners_config_autogen.dir/AutogenInfo.json"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -353,6 +354,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/KF5Codecs_QCH.dir/DependInfo.cmake"
   "CMakeFiles/fetch-translations.dir/DependInfo.cmake"
   "CMakeFiles/kwin4_effect_kwincorners.dir/DependInfo.cmake"
+  "CMakeFiles/kwin4_kwincorners_config.dir/DependInfo.cmake"
   "CMakeFiles/KF5GlobalAccel_QCH.dir/DependInfo.cmake"
   "CMakeFiles/KF5GuiAddons_QCH.dir/DependInfo.cmake"
   "CMakeFiles/KF5CoreAddons_QCH.dir/DependInfo.cmake"
@@ -369,4 +371,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/KF5XmlGui_QCH.dir/DependInfo.cmake"
   "CMakeFiles/KF5Bookmarks_QCH.dir/DependInfo.cmake"
   "CMakeFiles/kwin4_effect_kwincorners_autogen.dir/DependInfo.cmake"
+  "CMakeFiles/kwin4_kwincorners_config_autogen.dir/DependInfo.cmake"
   )

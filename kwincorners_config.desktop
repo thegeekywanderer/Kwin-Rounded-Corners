@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-Library=kwin4_kwincorners_config
+X-KDE-ParentComponents=kwin4_effect_kwincorners
+X-KDE-PluginKeyword=kwincorners
+
+Name=KwinCorners
